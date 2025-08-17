@@ -7,9 +7,16 @@ import { FaInstagram } from "react-icons/fa"
 import { FaSnapchat } from "react-icons/fa6"
 import { CiLinkedin } from "react-icons/ci"
 import SpacialCard from "./SpacialCard"
-import { navigations } from "../constants"
+import { navigations, policies } from "../constants"
+import useFetchQuery from "../constants/useFetchQuery"
 
 const MainFooter = () => {
+  const {
+    data: Links,
+    isLoading,
+    error,
+  } = useFetchQuery("services", "/services")
+
   return (
     <div className="container pt-30 max-[768px]:pt-20">
       {/* Cards */}
@@ -76,8 +83,13 @@ const MainFooter = () => {
         {/* Card Links */}
 
         <SpacialCard title="Quick Links" Links={navigations} />
-        <SpacialCard title="Services" Links={navigations} />
-        <SpacialCard title="Legal & Policies" Links={navigations} />
+        <SpacialCard
+          title="Services"
+          Links={Links}
+          isLoading={isLoading}
+          error={error}
+        />
+        <SpacialCard title="Legal & Policies" Links={policies} />
       </div>
 
       <div className="pt-5 pb-4 text-white text-center">

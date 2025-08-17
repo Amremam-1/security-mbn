@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div className="container">
+    <div className="container bg-main">
       <div className="flex items-center justify-between h-[70px] text-white">
         <Link to="/" className="">
           <img src="/assets/Logo.png" alt="logo" />

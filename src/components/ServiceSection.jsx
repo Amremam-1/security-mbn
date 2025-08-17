@@ -1,13 +1,21 @@
 import { useState } from "react"
-import { servicesData } from "../constants"
 import TextSection from "./TextSection"
+import useFetchQuery from "../constants/useFetchQuery"
 
 const ServiceSection = () => {
-  const [active, setActive] = useState(1)
+  const {
+    data: servicesData,
+    isLoading,
+    error,
+  } = useFetchQuery("services", "/services")
+
+  const [active, setActive] = useState(77)
   const handleService = (id) => {
     setActive(id)
-    console.log(id)
   }
+
+  if (error) return <p>Error: {error.message}</p>
+
   return (
     <div className="container pt-40 max-[768px]:pt-20">
       <TextSection
@@ -23,44 +31,53 @@ const ServiceSection = () => {
           <span className="w-[1px] rounded-4xl h-min-screen bg-gray-400 block"></span>
 
           <ul className="relative">
-            {servicesData.map((service) => (
-              <li
-                key={service.id}
-                className="relative group flex mb-5"
-                onMouseEnter={() => handleService(service.id)}
-              >
-                {/* Circle on the line */}
-                <div className="absolute -left-[22px] top-[6px]">
+            {isLoading ? (
+              <div role="status" className="max-w-sm animate-pulse">
+                <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[560px] mb-2.5"></div>
+                <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[400px] mb-2.5"></div>
+                <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[400px] mb-2.5"></div>
+              </div>
+            ) : (
+              servicesData?.map((service) => (
+                <li
+                  key={service.id}
+                  className="relative group flex mb-5"
+                  onMouseEnter={() => handleService(service.id)}
+                >
+                  {/* Circle on the line */}
+                  <div className="absolute -left-[22px] top-[6px]">
+                    <div
+                      className={`${
+                        active === service.id
+                          ? "relative flex items-center justify-center w-4 h-4"
+                          : ""
+                      }`}
+                    >
+                      <span className="absolute w-6 h-6 rounded-full border-[2px] border-white opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                      <span className="w-4 h-4 rounded-full bg-gradient-to-r from-orange-500 via-black to-orange-900 z-10"></span>
+                    </div>
+                  </div>
+
+                  {/* Text */}
                   <div
                     className={`${
                       active === service.id
-                        ? "relative flex items-center justify-center w-4 h-4"
-                        : ""
-                    }`}
+                        ? "opacity-100"
+                        : "opacity-75 transition-opacity"
+                    } text-white w-[75%] max-[992px]:w-[80%] ml-2`}
                   >
-                    {/* Outer white ring (only on hover) */}
-                    <span className="absolute w-6 h-6 rounded-full border-[2px] border-white opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
-
-                    {/* Inner fixed dot */}
-                    <span className="w-4 h-4 rounded-full bg-gradient-to-r from-orange-500 via-black to-orange-900 z-10"></span>
+                    <h3 className="text-xl font-semibold mb-1">
+                      {service.en_name}
+                    </h3>
+                    <p className="text-sm text-gray-300">
+                      {service.en_description}
+                    </p>
                   </div>
-                </div>
-
-                {/* Text */}
-                <div
-                  className={`${
-                    active === service.id
-                      ? "opacity-100"
-                      : "opacity-75 transition-opacity"
-                  }  text-white w-[75%] max-[992px]:w-[80%] ml-2`}
-                >
-                  <h3 className="text-xl font-semibold mb-1">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-gray-300">{service.description}</p>
-                </div>
-              </li>
-            ))}
+                </li>
+              ))
+            )}
           </ul>
         </div>
         {/* Left Side */}

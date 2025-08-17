@@ -90,7 +90,7 @@ const Intro = () => {
       {/* Scroll to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-5 right-5 bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full shadow-lg z-20"
+        className="fixed bottom-5 right-5 custom-gradient hover:bg-orange-600 text-white p-2 rounded-full shadow-lg z-20"
       >
         ↑
       </button>

@@ -1,16 +1,18 @@
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import useFetchQuery from "../constants/useFetchQuery"
 
 const schema = z.object({
   name: z.string().min(3, "Name must be at least 3 characters"),
   email: z.string().email("Invalid email address"),
   number: z.number().min(1, "Phone number is required"),
-  company: z.string().min(3, "Company name must be at least 3 characters"),
+  massege: z.string().min(3, "Your message must be at least 3 characters"),
   service: z.string().min(1, "Please select a service"),
 })
 
 const Form = () => {
+  const { data, isLoading, error } = useFetchQuery("services", "/services")
   const {
     register,
     handleSubmit,
@@ -20,6 +22,8 @@ const Form = () => {
   const onSubmit = (data) => {
     console.log(data)
   }
+
+  if (isLoading) return <></>
 
   const inputClass =
     "w-full px-4 py-2 rounded-full bg-transparent border-[1px] mb-4 text-white placeholder-white outline-none ring-1 ring-orange-400"
@@ -55,26 +59,30 @@ const Form = () => {
         <p className="text-red-500 text-[12px]">{errors.number.message}</p>
       )}
 
-      <input
-        {...register("company")}
-        placeholder="Company Name"
-        className={inputClass}
-      />
-      {errors.company && (
-        <p className="text-red-500 text-[12px]">{errors.company.message}</p>
-      )}
-
       <select
         {...register("service")}
         className={`border-none bg-black w-full px-4 py-2 rounded-full border-[1px] text-white placeholder-white outline-none ring-1 ring-orange-400`}
       >
         <option value="">Service Inquiry</option>
-        <option value="design">Network Security</option>
-        <option value="development">EndPoint Security</option>
-        <option value="marketing">Cloud Security</option>
+
+        {data.map((item) => (
+          <option key={item.id} value={item?.en_name}>
+            {item?.en_name}
+          </option>
+        ))}
       </select>
       {errors.service && (
         <p className="text-red-500 text-[12px]">{errors.service.message}</p>
+      )}
+
+      <textarea
+        {...register("massege")}
+        placeholder="massege"
+        className={`border-none h-[100px] rounded-xl mt-2 ${inputClass}`}
+      />
+
+      {errors.massege && (
+        <p className="text-red-500 text-[12px]">{errors.massege.message}</p>
       )}
 
       <button type="submit" className="btn shadow-custom-hover w-[200px] mt-4">

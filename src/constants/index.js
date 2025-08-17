@@ -314,3 +314,24 @@ export const clients = [
     imgUrl: "/assets/part17.png",
   },
 ]
+
+export const policies = [
+  {
+    id: "0",
+    titleEn: "Terms & Conditions",
+    titleAr: "",
+    path: "",
+  },
+  {
+    id: "1",
+    titleEn: "Privacy Policy",
+    titleAr: "",
+    path: "",
+  },
+  {
+    id: "2",
+    titleEn: "Security Standards",
+    titleAr: "",
+    path: "",
+  },
+]

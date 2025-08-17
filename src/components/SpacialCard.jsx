@@ -1,7 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-const SpacialCard = ({ title, Links }) => {
+const SpacialCard = ({ title, Links, isLoading, error }) => {
+  if (error) return <p>Error: {error.message}</p>
+  if (isLoading) return <>Loading..</>
   return (
     <div className="px-[20px] py-[35px] border-amber-700 border rounded-4xl h-full">
       {/* Heading */}
@@ -19,7 +21,7 @@ const SpacialCard = ({ title, Links }) => {
 
       {/* Links */}
       <ul className="flex flex-col text-white">
-        {Links.map((item) => (
+        {Links?.map((item) => (
           <li
             key={item.id}
             className="relative uppercase text-[13px] font-medium mb-3 transform transition-all duration-300 ease-in-out hover:translate-x-[8px]
@@ -27,10 +29,10 @@ const SpacialCard = ({ title, Links }) => {
             before:rounded-full before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
           >
             <Link
-              to={item.path}
+              to={item?.path || item?.en_name}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              {item.titleEn}
+              {item?.titleEn || item?.en_name}
             </Link>
           </li>
         ))}
