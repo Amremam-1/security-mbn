@@ -69,28 +69,31 @@ const NavBar = () => {
                     </Link>
 
                     {/* Dropdown Menu */}
-                    {link.id === "3" && openDropdown && (
-                      <ul className="absolute top-full left-0 mt-2 w-40 bg-black text-white rounded-lg shadow-lg p-2">
-                        {servicesData.map((item) => {
-                          const serviceSlug = `/${slugify(item.en_name)}`
-                          const isServiceActive =
-                            location.pathname === serviceSlug
+                    {link.id === "3" &&
+                      openDropdown &&
+                      Array.isArray(servicesData) && (
+                        <ul className="absolute top-full left-0 mt-2 w-40 bg-black text-white rounded-lg shadow-lg p-2">
+                          {servicesData?.map((item) => {
+                            if (!item?.en_name) return null
+                            const serviceSlug = `/${slugify(item.en_name)}`
+                            const isServiceActive =
+                              location.pathname === serviceSlug
 
-                          return (
-                            <li
-                              key={item.id}
-                              className={`px-3 py-2 rounded ${
-                                isServiceActive
-                                  ? "bg-gray-200 text-black"
-                                  : "hover:bg-gray-200 hover:text-black"
-                              }`}
-                            >
-                              <Link to={serviceSlug}>{item.en_name}</Link>
-                            </li>
-                          )
-                        })}
-                      </ul>
-                    )}
+                            return (
+                              <li
+                                key={item.id}
+                                className={`px-3 py-2 rounded ${
+                                  isServiceActive
+                                    ? "bg-gray-200 text-black"
+                                    : "hover:bg-gray-200 hover:text-black"
+                                }`}
+                              >
+                                <Link to={serviceSlug}>{item.en_name}</Link>
+                              </li>
+                            )
+                          })}
+                        </ul>
+                      )}
                   </div>
                 </li>
               )
