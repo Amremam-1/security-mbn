@@ -79,8 +79,8 @@ const ServicesLayout = ({ defaultTitle }) => {
 
                 <h3 className="text-xl font-bold mt-6 mb-2">The Tools</h3>
                 <ul className="list-disc list-inside space-y-2">
-                  {activeItem.tools &&
-                    JSON.parse(activeItem?.tools).map((tool, index) => (
+                  {Array.isArray(JSON.parse(activeItem?.tools || "[]")) &&
+                    JSON.parse(activeItem.tools || "[]").map((tool, index) => (
                       <li
                         key={index}
                         className="text-white font-medium text-xl"
