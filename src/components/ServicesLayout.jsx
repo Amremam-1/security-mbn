@@ -78,16 +78,26 @@ const ServicesLayout = ({ defaultTitle }) => {
                 <p>{activeItem.en_description}</p>
 
                 <h3 className="text-xl font-bold mt-6 mb-2">The Tools</h3>
+                
                 <ul className="list-disc list-inside space-y-2">
-                  {Array.isArray(JSON.parse(activeItem?.tools || "[]")) &&
-                    JSON.parse(activeItem.tools || "[]").map((tool, index) => (
-                      <li
-                        key={index}
-                        className="text-white font-medium text-xl"
-                      >
-                        • {tool}
-                      </li>
-                    ))}
+                  {activeItem?.tools &&
+                    (() => {
+                      try {
+                        const toolsArray = JSON.parse(activeItem.tools)
+                        if (!Array.isArray(toolsArray)) return null
+
+                        return toolsArray.map((tool, index) => (
+                          <li
+                            key={index}
+                            className="text-white font-medium text-xl"
+                          >
+                            • {tool}
+                          </li>
+                        ))
+                      } catch {
+                        return null // لو الـ JSON مش valid ما نعرضش حاجة
+                      }
+                    })()}
                 </ul>
 
                 <Link to="/contact">
