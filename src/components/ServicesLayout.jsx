@@ -14,10 +14,10 @@ const ServicesLayout = ({ defaultTitle }) => {
   const [activeItem, setActiveItem] = useState(null)
 
   useEffect(() => {
-    if (data && data.length > 0) {
+    if (data && data?.length > 0) {
       if (slug) {
         // لو فيه slug في URL اعرض الخدمة المناسبة
-        const matched = data.find((item) => slugify(item.en_name) === slug)
+        const matched = data?.find((item) => slugify(item.en_name) === slug)
         setActiveItem(matched || data[0])
       } else {
         // لو مفيش slug اعرض أول خدمة
@@ -80,7 +80,7 @@ const ServicesLayout = ({ defaultTitle }) => {
                 <h3 className="text-xl font-bold mt-6 mb-2">The Tools</h3>
                 <ul className="list-disc list-inside space-y-2">
                   {activeItem.tools &&
-                    JSON.parse(activeItem.tools).map((tool, index) => (
+                    JSON.parse(activeItem?.tools).map((tool, index) => (
                       <li
                         key={index}
                         className="text-white font-medium text-xl"
