@@ -9,7 +9,8 @@ const ServiceSection = () => {
     error,
   } = useFetchQuery("services", "/services")
 
-  const [active, setActive] = useState(77)
+  const [active, setActive] = useState(null)
+
   const handleService = (id) => {
     setActive(id)
   }
@@ -32,6 +33,7 @@ const ServiceSection = () => {
 
           <ul className="relative">
             {isLoading ? (
+              // Skeleton Loading
               <div role="status" className="max-w-sm animate-pulse">
                 <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
                 <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[560px] mb-2.5"></div>
@@ -39,8 +41,8 @@ const ServiceSection = () => {
                 <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[400px] mb-2.5"></div>
                 <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[400px] mb-2.5"></div>
               </div>
-            ) : (
-              servicesData?.map((service) => (
+            ) : Array.isArray(servicesData) && servicesData.length > 0 ? (
+              servicesData.map((service) => (
                 <li
                   key={service.id}
                   className="relative group flex mb-5"
@@ -77,11 +79,13 @@ const ServiceSection = () => {
                   </div>
                 </li>
               ))
+            ) : (
+              <p className="text-gray-400">No services available</p>
             )}
           </ul>
         </div>
-        {/* Left Side */}
 
+        {/* Left Side */}
         <div className="w-full flex-2/5 max-[1024px]:flex-2/4 relative">
           <img
             src="../../assets/sec-image.png"
