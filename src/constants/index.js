@@ -40,7 +40,7 @@ export const navigations = [
     id: "6",
     titleEn: "Request A Quote",
     titleAr: "",
-    path: "/",
+    path: "",
   },
 ]
 
