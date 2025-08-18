@@ -55,7 +55,7 @@ const TechnologySection = () => {
               and scalable automation — we build tech that grows with you.
             </p>
             <img
-              src="/public/assets/tach.png"
+              src="/assets/tach.png"
               alt=""
               className="w-full h-full absolute top-0 right-0 z-0 opacity-30"
             />

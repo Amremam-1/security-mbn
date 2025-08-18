@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { slugify } from "../utils/slugify"
 
 const SpacialCard = ({ title, Links, isLoading, error }) => {
   if (error) return <p>Error: {error.message}</p>
@@ -29,7 +30,7 @@ const SpacialCard = ({ title, Links, isLoading, error }) => {
             before:rounded-full before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
           >
             <Link
-              to={item?.path || item?.en_name}
+              to={`/${slugify(item?.path || item?.en_name)}`}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               {item?.titleEn || item?.en_name}
