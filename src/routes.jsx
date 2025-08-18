@@ -37,18 +37,18 @@ const router = createBrowserRouter([
     children: [{ index: "/contact", element: <ContactPage /> }],
   },
 
-  // {
-  //   path: "/study-projects",
-  //   element: <Layout />,
-  //   children: [{ path: "/study-projects", element: <StudyProjectsPage /> }],
-  // },
-  // {
-  //   path: "/:slug",
-  //   element: <Layout />,
-  //   children: [
-  //     { index: true, element: <ServicesLayout defaultTitle="Services" /> },
-  //   ],
-  // },
+  {
+    path: "/study-projects",
+    element: <Layout />,
+    children: [{ path: "/study-projects", element: <StudyProjectsPage /> }],
+  },
+  {
+    path: "/:slug",
+    element: <Layout />,
+    children: [
+      { index: true, element: <ServicesLayout defaultTitle="Services" /> },
+    ],
+  },
 ])
 
 export default router
