@@ -16,6 +16,8 @@ const ProjectSection = () => {
     error,
   } = useFetchQuery("projects", "/projects")
 
+  if (error) return <></>
+
   return (
     <div className="container pt-30 max-[768px]:pt-20">
       <TextSection
@@ -76,7 +78,7 @@ const ProjectSection = () => {
                 </SwiperSlide>
               ))
             : // Real projects
-              projects.map((project) => (
+              projects?.map((project) => (
                 <SwiperSlide key={project.id}>
                   <div className="group flex flex-col gap-2 text-center justify-center cursor-pointer">
                     {/* الصورة */}
