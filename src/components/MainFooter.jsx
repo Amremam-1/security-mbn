@@ -83,12 +83,12 @@ const MainFooter = () => {
         {/* Card Links */}
 
         <SpacialCard title="Quick Links" Links={navigations} />
-        <SpacialCard
+        {/* <SpacialCard
           title="Services"
           Links={Array.isArray(Links) ? Links : []}
           isLoading={isLoading}
           error={error}
-        />
+        /> */}
         <SpacialCard title="Legal & Policies" Links={policies} />
       </div>
 
