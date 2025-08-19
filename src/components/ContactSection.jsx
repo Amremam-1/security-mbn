@@ -22,38 +22,6 @@ const ContactSection = () => {
           />
         </div>
       </div>
-
-      <div className="custom-gradient mt-15 rounded-4xl lg:rounded-full px-15 py-10 flex justify-between items-center gap-y-3 max-[768px]:flex-col">
-        <h2 className="text-white text-2xl font-bold w-full lg:w-[45%] max-[768px]:text-center">
-          Stay Informed with the Latest Cybersecurity Updates
-        </h2>
-
-        <div className="w-full">
-          <form className="flex gap-4 items-center justify-between max-[768px]:flex-col">
-            <input
-              type="text"
-              className="placeholder:text-white !border-b !border-white bg-transparent text-white text-[16px] max-[768px]:w-full w-40 pb-1.5 focus:outline-none"
-              placeholder="Full Name"
-            />
-            <input
-              type="text"
-              className="placeholder:text-white !border-b border-white bg-transparent text-white text-[16px] max-[768px]:w-full w-40 pb-1.5 focus:outline-none"
-              placeholder="Last Name"
-            />
-            <input
-              type="email"
-              className="placeholder:text-white !border-b border-white bg-transparent text-white text-[16px] max-[768px]:w-full w-50 pb-1.5 focus:outline-none"
-              placeholder="Email Address"
-            />
-            <button
-              type="submit"
-              className="text-white border border-orange-500 rounded-full px-8 py-2 bg-black"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
-      </div>
     </div>
   )
 }

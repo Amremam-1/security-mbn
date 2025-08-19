@@ -6,19 +6,22 @@ import { Link, useLocation } from "react-router-dom"
 import useFetchQuery from "../constants/useFetchQuery"
 import { useState } from "react"
 import { slugify } from "../utils/slugify"
+import { CgMenu } from "react-icons/cg"
+import SideBar from "./SideBar"
 
 const NavBar = () => {
   const location = useLocation()
   const [openDropdown, setOpenDropdown] = useState(false)
+  const [openSideBar, setOpenSideBar] = useState(false)
   const { data: servicesData, isLoading } = useFetchQuery(
     "services",
     "/services"
   )
 
-  if (isLoading) return <></>
+  if (isLoading) return <p>Loading..</p>
 
   return (
-    <div className="container bg-main">
+    <div className="px-5 bg-main">
       <div className="flex items-center justify-between h-[70px] text-white">
         {/* Logo */}
         <Link to="/" className="">
@@ -32,16 +35,14 @@ const NavBar = () => {
               const isActive =
                 location.pathname === link.path ||
                 (link.id === "3" &&
-                  Array.isArray(servicesData) &&
-                  servicesData.some(
-                    (item) =>
-                      location.pathname === `/${slugify(item?.en_name || "")}`
+                  servicesData?.some(
+                    (item) => location.pathname === `/${slugify(item.en_name)}`
                   ))
 
               return (
                 <li
                   key={link.id}
-                  className={`mr-6 uppercase text-xs font-medium max-[769px]:hidden block
+                  className={`mr-6 uppercase text-xs font-medium max-[850px]:hidden block
                     ${
                       link.id === "6"
                         ? "custom-gradient py-2 px-1.5 rounded-xl"
@@ -100,6 +101,14 @@ const NavBar = () => {
                 </li>
               )
             })}
+            <div className="hidden max-[850px]:block">
+              <span
+                onClick={() => setOpenSideBar(!openSideBar)}
+                className="cursor-pointer"
+              >
+                <CgMenu className="text-2xl text-white" />
+              </span>
+            </div>
           </ul>
         </nav>
 
@@ -107,6 +116,28 @@ const NavBar = () => {
         <div className="flex items-center gap-2 text-2xl cursor-pointer">
           <FaLanguage />
           <CiDark />
+        </div>
+
+        {/* Overlay */}
+        <div
+          className={`fixed inset-0 bg-black/50 z-20 transition-opacity duration-300 ease-in-out
+    ${openSideBar ? "opacity-100 visible" : "opacity-0 invisible"}`}
+          onClick={() => setOpenSideBar(false)} // كليك برة يقفل
+        ></div>
+
+        {/* SideBar */}
+        <div
+          className={`fixed top-0 right-0 h-full w-[280px] z-30 
+  rounded-l-2xl bg-[#1e1e1e] border-l border-white/10 
+  transform transition-transform duration-300 ease-in-out 
+  shadow-2xl shadow-black/50
+  ${openSideBar ? "translate-x-0" : "translate-x-full"}`}
+        >
+          <SideBar
+            setOpenSideBar={setOpenSideBar}
+            navigations={navigations}
+            servicesData={servicesData}
+          />
         </div>
       </div>
     </div>
