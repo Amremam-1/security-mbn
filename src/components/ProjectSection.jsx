@@ -16,6 +16,8 @@ const ProjectSection = () => {
     error,
   } = useFetchQuery("projects", "/projects")
 
+  console.log(projects)
+
   if (error) return <p className="text-red-500">Error loading projects</p>
 
   return (
@@ -73,16 +75,16 @@ const ProjectSection = () => {
                   {/* الصورة */}
                   <div className="relative w-full h-[230px] bg-main border-2 border-orange-400 rounded-full overflow-hidden">
                     <img
-                      src={project.image || "/fallback.jpg"}
-                      alt={project.en_name || "Project"}
+                      src={project.image}
+                      alt={project.en_name}
                       className=" w-full h-full rounded-full object-cover"
                     />
                     <button className="absolute bottom-5 left-0 transform -translate-x-full group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-700 z-10 px-5 py-2 rounded-full text-white custom-gradient">
                       <Link
-                        to={project.link || "#"}
+                        to={project.link}
                         className="text-[12px] font-light"
                       >
-                        {project?.service?.en_name || "View"}
+                        {project?.service?.en_name}
                       </Link>
                     </button>
                     {/* overlay */}
@@ -92,10 +94,10 @@ const ProjectSection = () => {
                   {/* النص */}
                   <div className="text-white min-h-[110px] flex flex-col mt-2">
                     <h2 className="text-xl lg:text-2xl font-semibold">
-                      {project.en_name || "Untitled Project"}
+                      {project.en_name}
                     </h2>
                     <p className="font-normal text-[14px]">
-                      {project.en_description || "No description available"}
+                      {project.en_description}
                     </p>
                   </div>
 

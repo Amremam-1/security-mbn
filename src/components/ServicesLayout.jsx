@@ -84,7 +84,7 @@ const ServicesLayout = ({ defaultTitle }) => {
 
                 <h3 className="text-xl font-bold mt-6 mb-2">The Tools</h3>
                 <ul className="list-disc list-inside space-y-2">
-                  {(() => {
+                  {/* {(() => {
                     try {
                       if (typeof activeItem?.tools !== "string") return null
                       const toolsArray = JSON.parse(activeItem.tools)
@@ -100,7 +100,7 @@ const ServicesLayout = ({ defaultTitle }) => {
                     } catch {
                       return null
                     }
-                  })()}
+                  })()} */}
                 </ul>
 
                 <Link to="/contact">
