@@ -85,7 +85,7 @@ const MainFooter = () => {
         <SpacialCard title="Quick Links" Links={navigations} />
         <SpacialCard
           title="Services"
-          Links={Links}
+          Links={Array.isArray(Links) ? Links : []}
           isLoading={isLoading}
           error={error}
         />

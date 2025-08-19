@@ -64,7 +64,7 @@ const ServicesLayout = ({ defaultTitle }) => {
 
         {/* Details */}
         <div className="lg:w-3/4 md:w-full lg:p-6 md:p-2">
-          {/* {activeItem && (
+          {activeItem && (
             <div className="text-white">
               <div className="w-full h-full">
                 <img
@@ -82,33 +82,49 @@ const ServicesLayout = ({ defaultTitle }) => {
                   {activeItem?.en_description || "No description available"}
                 </p>
 
-                <h3 className="text-xl font-bold mt-6 mb-2">The Tools</h3>
-                <ul className="list-disc list-inside space-y-2">
-                  {(() => {
-                    try {
-                      if (typeof activeItem?.tools !== "string") return null
-                      const toolsArray = JSON.parse(activeItem.tools)
-                      if (!Array.isArray(toolsArray)) return null
-                      return toolsArray.map((tool, index) => (
-                        <li
-                          key={index}
-                          className="text-white font-medium text-xl"
-                        >
-                          • {tool}
-                        </li>
-                      ))
-                    } catch {
+                {/* Tools Section */}
+                {(() => {
+                  try {
+                    if (
+                      !activeItem?.tools ||
+                      typeof activeItem.tools !== "string"
+                    )
                       return null
-                    }
-                  })()}
-                </ul>
+
+                    const toolsArray = JSON.parse(activeItem.tools)
+
+                    if (!Array.isArray(toolsArray) || toolsArray.length === 0)
+                      return null
+
+                    return (
+                      <>
+                        <h3 className="text-xl font-bold mt-6 mb-2">
+                          The Tools
+                        </h3>
+                        <ul className="list-disc list-inside space-y-2">
+                          {toolsArray.map((tool, index) => (
+                            <li
+                              key={index}
+                              className="text-white font-medium text-xl"
+                            >
+                              • {tool}
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )
+                  } catch (err) {
+                    console.error("Error parsing tools:", err)
+                    return null
+                  }
+                })()}
 
                 <Link to="/contact">
                   <Button title="Contact Us" />
                 </Link>
               </div>
             </div>
-          )} */}
+          )}
         </div>
       </div>
 
