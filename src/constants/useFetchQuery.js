@@ -15,3 +15,5 @@ const useFetchQuery = (key, endpoint) => {
 }
 
 export default useFetchQuery
+
+

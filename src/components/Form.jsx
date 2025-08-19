@@ -2,25 +2,45 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import useFetchQuery from "../constants/useFetchQuery"
+import { useAddData } from "../constants/useAddData"
 
 const schema = z.object({
   name: z.string().min(3, "Name must be at least 3 characters"),
   email: z.string().email("Invalid email address"),
-  number: z.number().min(1, "Phone number is required"),
-  massege: z.string().min(3, "Your message must be at least 3 characters"),
-  service: z.string().min(1, "Please select a service"),
+  message: z.string().min(3, "Your message must be at least 3 characters"),
+  phone: z.string().min(7, "Phone number is required"),
+  service_id: z.string().min(1, "Please select a service"),
 })
 
 const Form = () => {
   const { data, isLoading, error } = useFetchQuery("services", "/services")
+  const { mutate: addFormData, isPending } = useAddData("contactRequests")
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) })
 
-  const onSubmit = (data) => {
-    console.log(data)
+  const onSubmit = (formData) => {
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+      phone: formData.phone,
+      service_id: formData.service_id,
+    }
+
+    addFormData(payload, {
+      onSuccess: () => {
+        console.log("Form sent successfully ✅")
+        reset()
+      },
+      onError: () => {
+        console.log("Something went wrong ❌")
+      },
+    })
   }
 
   if (isLoading) return <></>
@@ -50,43 +70,41 @@ const Form = () => {
       )}
 
       <input
-        {...register("number")}
-        type="number"
+        {...register("phone")}
+        type="tel"
         placeholder="Phone Number"
         className={inputClass}
       />
-      {errors.number && (
-        <p className="text-red-500 text-[12px]">{errors.number.message}</p>
+      {errors.phone && (
+        <p className="text-red-500 text-[12px]">{errors.phone.message}</p>
       )}
 
       <select
-        {...register("service")}
+        {...register("service_id")}
         className={`border-none bg-black w-full px-4 py-2 rounded-full border-[1px] text-white placeholder-white outline-none ring-1 ring-orange-400`}
       >
         <option value="">Service Inquiry</option>
-
         {data.map((item) => (
-          <option key={item.id} value={item?.en_name}>
+          <option key={item.id} value={item?.id}>
             {item?.en_name}
           </option>
         ))}
       </select>
-      {errors.service && (
-        <p className="text-red-500 text-[12px]">{errors.service.message}</p>
+      {errors.service_id && (
+        <p className="text-red-500 text-[12px]">{errors.service_id.message}</p>
       )}
 
       <textarea
-        {...register("massege")}
-        placeholder="massege"
+        {...register("message")}
+        placeholder="message"
         className={`border-none h-[100px] rounded-xl mt-2 ${inputClass}`}
       />
-
-      {errors.massege && (
-        <p className="text-red-500 text-[12px]">{errors.massege.message}</p>
+      {errors.message && (
+        <p className="text-red-500 text-[12px]">{errors.message.message}</p>
       )}
 
       <button type="submit" className="btn shadow-custom-hover w-[200px] mt-4">
-        Submit
+        {isPending ? "Sending..." : "Submit"}
       </button>
     </form>
   )
