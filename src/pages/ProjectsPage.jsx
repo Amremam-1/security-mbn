@@ -1,7 +1,7 @@
 import React from "react"
 import PageHeader from "../components/PageHeader"
 import { GrProjects } from "react-icons/gr"
-import ProjectSection from "../components/ProjectSection"
+// import ProjectSection from "../components/ProjectSection"
 import MainFooter from "../components/MainFooter"
 
 const ProjectsPage = () => {
@@ -12,7 +12,7 @@ const ProjectsPage = () => {
         icon={<GrProjects />}
         breadcrumb={[{ label: "Home", path: "/" }, { label: "Projects" }]}
       />
-      <ProjectSection />
+      {/* <ProjectSection /> */}
       <MainFooter />
     </div>
   )

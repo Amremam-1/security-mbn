@@ -4,7 +4,7 @@ import AboutSection from "../components/AboutSection"
 import ServiceSection from "../components/ServiceSection"
 import IndustriesServices from "../components/IndustriesServices"
 import Banner from "../components/Banner"
-import ProjectSection from "../components/ProjectSection"
+// import ProjectSection from "../components/ProjectSection"
 import TechnologySection from "../components/TechnologySection"
 import ClientSection from "../components/ClientSection"
 import ContactSection from "../components/ContactSection"
@@ -18,7 +18,7 @@ const Home = () => {
       <ServiceSection />
       <IndustriesServices />
       <Banner />
-      <ProjectSection />
+      {/* <ProjectSection /> */}
       <TechnologySection />
       <ClientSection />
       <ContactSection />
