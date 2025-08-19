@@ -16,39 +16,39 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [{ index: true, element: <Home /> }],
   },
-  {
-    path: "/about",
-    element: <Layout />,
-    errorElement: <ErrorPage />,
-    children: [{ index: "/about", element: <AboutPage /> }],
-  },
-  {
-    path: "/project",
-    element: <Layout />,
-    errorElement: <ErrorPage />,
-    children: [{ index: "/project", element: <ProjectsPage /> }],
-  },
-  {
-    path: "/contact",
-    element: <Layout />,
-    errorElement: <ErrorPage />,
-    children: [{ index: "/contact", element: <ContactPage /> }],
-  },
+  // {
+  //   path: "/about",
+  //   element: <Layout />,
+  //   errorElement: <ErrorPage />,
+  //   children: [{ index: "/about", element: <AboutPage /> }],
+  // },
+  // {
+  //   path: "/project",
+  //   element: <Layout />,
+  //   errorElement: <ErrorPage />,
+  //   children: [{ index: "/project", element: <ProjectsPage /> }],
+  // },
+  // {
+  //   path: "/contact",
+  //   element: <Layout />,
+  //   errorElement: <ErrorPage />,
+  //   children: [{ index: "/contact", element: <ContactPage /> }],
+  // },
 
-  {
-    path: "/study-projects",
-    element: <Layout />,
-    errorElement: <ErrorPage />,
-    children: [{ path: "/study-projects", element: <StudyProjectsPage /> }],
-  },
-  {
-    path: "/:slug",
-    element: <Layout />,
-    errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <ServicesLayout defaultTitle="Services" /> },
-    ],
-  },
+  // {
+  //   path: "/study-projects",
+  //   element: <Layout />,
+  //   errorElement: <ErrorPage />,
+  //   children: [{ path: "/study-projects", element: <StudyProjectsPage /> }],
+  // },
+  // {
+  //   path: "/:slug",
+  //   element: <Layout />,
+  //   errorElement: <ErrorPage />,
+  //   children: [
+  //     { index: true, element: <ServicesLayout defaultTitle="Services" /> },
+  //   ],
+  // },
 ])
 
 export default router
