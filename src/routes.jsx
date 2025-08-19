@@ -5,46 +5,46 @@ import AboutPage from "./pages/AboutPage"
 import ProjectsPage from "./pages/ProjectsPage"
 import ContactPage from "./pages/ContactPage"
 import StudyProjectsPage from "./pages/StudyProjectsPage"
-import WebApplication from "./pages/WebApplication"
-import VideoMotion from "./pages/VideoMotion"
-import DigitalMarketing from "./pages/DigitalMarketing"
-import ProductDesign from "./pages/ProductDesign"
-import ArtisticProduction from "./pages/ArtisticProduction"
-import Robotics from "./pages/Robotics"
-import UiuxDesign from "./pages/UiuxDesign"
-import VisualIdentity from "./pages/VisualIdentity"
+
 import ServicesLayout from "./components/ServicesLayout"
+import ErrorPage from "./pages/ErrorPage"
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [{ index: true, element: <Home /> }],
   },
   {
     path: "/about",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [{ index: "/about", element: <AboutPage /> }],
   },
   {
     path: "/project",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [{ index: "/project", element: <ProjectsPage /> }],
   },
   {
     path: "/contact",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [{ index: "/contact", element: <ContactPage /> }],
   },
 
   {
     path: "/study-projects",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [{ path: "/study-projects", element: <StudyProjectsPage /> }],
   },
   {
     path: "/:slug",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <ServicesLayout defaultTitle="Services" /> },
     ],
