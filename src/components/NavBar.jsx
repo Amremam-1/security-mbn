@@ -32,8 +32,10 @@ const NavBar = () => {
               const isActive =
                 location.pathname === link.path ||
                 (link.id === "3" &&
-                  servicesData?.some(
-                    (item) => location.pathname === `/${slugify(item.en_name)}`
+                  Array.isArray(servicesData) &&
+                  servicesData.some(
+                    (item) =>
+                      location.pathname === `/${slugify(item?.en_name || "")}`
                   ))
 
               return (
