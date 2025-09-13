@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom"
 const Layout = () => {
   const isScrolled = useScrollPosition(10)
   return (
-    <div className="bg-main">
+    <div className="bg-white dark:bg-black">
       <TopBanner />
       <div
         className={`fixed left-0 w-full z-50 border-none transition-all duration-300 ${

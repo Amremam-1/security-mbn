@@ -46,7 +46,7 @@ const Form = () => {
   if (isLoading) return <></>
 
   const inputClass =
-    "w-full px-4 py-2 rounded-full bg-transparent border-[1px] mb-4 text-white placeholder-white outline-none ring-1 ring-orange-400"
+    "w-full px-4 py-2 rounded-full bg-transparent border-[1px] mb-4 text-[#6b7280] dark:text-white placeholder-[#111827] dark:placeholder-white outline-none ring-1 ring-orange-400"
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 mb-10">
@@ -81,7 +81,7 @@ const Form = () => {
 
       <select
         {...register("service_id")}
-        className={`border-none bg-black w-full px-4 py-2 rounded-full border-[1px] text-white placeholder-white outline-none ring-1 ring-orange-400`}
+        className={`border-none bg-[#f9fafb] dark:bg-black w-full px-4 py-2 rounded-full border-[1px] text-[#111827] dark:text-white placeholder-white outline-none ring-1 ring-orange-400`}
       >
         <option value="">Service Inquiry</option>
         {data.map((item) => (

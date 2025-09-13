@@ -7,7 +7,7 @@ import GetInTouch from "../components/GetInTouch"
 
 const ContactPage = () => {
   return (
-    <div className="bg-main">
+    <div className="bg-white dark:bg-black">
       <PageHeader
         title="Contact Us"
         icon={<RiContactsFill />}

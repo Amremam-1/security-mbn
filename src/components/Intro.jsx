@@ -1,9 +1,9 @@
-import Button from "./Button";
+import Button from "./Button"
 
 const Intro = () => {
   return (
     <section
-      className="mt-[50px] max-[450px]:mt-[0px] relative text-white min-h-screen flex flex-col items-center 
+      className="mt-[50px] max-[450px]:mt-[0px] relative text-[#111827]  dark:text-white min-h-screen flex flex-col items-center 
     justify-center text-center px-4 overflow-hidden"
     >
       {/* Rotating Image with Static Circles Around */}
@@ -26,7 +26,7 @@ const Intro = () => {
               cx="400"
               cy="400"
               r="341"
-              stroke="#ffffff"
+              className="stroke-[#000000] dark:stroke-white"
               strokeWidth="0.3"
             />
             {/* <circle
@@ -49,14 +49,14 @@ const Intro = () => {
               cx="400"
               cy="400"
               r="370"
-              stroke="#ffffff"
+              className="stroke-[#0b0b0b] dark:stroke-white"
               strokeWidth="0.3"
             />
             <circle
               cx="400"
               cy="400"
               r="390"
-              stroke="#ffffff"
+              className="stroke-[#000000] dark:stroke-white"
               strokeWidth="0.3"
             />
           </svg>
@@ -79,7 +79,7 @@ const Intro = () => {
       </h1>
 
       {/* Description */}
-      <p className="mt-6 mb-5 max-w-2xl text-sm sm:text-base text-gray-300 leading-relaxed z-10">
+      <p className="mt-6 mb-5 max-w-2xl text-sm sm:text-base text-[#000] dark:text-gray-300 leading-relaxed z-10">
         MBN provides end-to-end technology solutions covering all aspects of the
         digital world — from software development, cybersecurity, AI, cloud
         computing, and IoT to digital marketing, automation, and tech
@@ -97,7 +97,7 @@ const Intro = () => {
 
       <Button title="Explore More" />
     </section>
-  );
-};
+  )
+}
 
-export default Intro;
+export default Intro

@@ -1,15 +1,19 @@
 import { navigations } from "../constants"
 import { FaLanguage } from "react-icons/fa"
 import { CiDark } from "react-icons/ci"
+import { IoSunnySharp } from "react-icons/io5"
 import { IoMdArrowDropdown } from "react-icons/io"
 import { Link, useLocation } from "react-router-dom"
 import useFetchQuery from "../constants/useFetchQuery"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { slugify } from "../utils/slugify"
 import { CgMenu } from "react-icons/cg"
 import SideBar from "./SideBar"
+import ThemeContext from "./ThemeContext"
 
 const NavBar = () => {
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext)
+
   const location = useLocation()
   const [openDropdown, setOpenDropdown] = useState(false)
   const [openSideBar, setOpenSideBar] = useState(false)
@@ -21,8 +25,8 @@ const NavBar = () => {
   if (isLoading) return <p>Loading..</p>
 
   return (
-    <div className="px-5 bg-main">
-      <div className="flex items-center justify-between h-[70px] text-white">
+    <div className="px-5 bg-white dark:bg-black">
+      <div className="flex items-center justify-between h-[70px] text-[#111827] dark:text-white">
         {/* Logo */}
         <Link to="/" className="">
           <img src="/assets/Logo.png" alt="logo" />
@@ -42,15 +46,15 @@ const NavBar = () => {
               return (
                 <li
                   key={link.id}
-                  className={`mr-6 uppercase text-xs font-medium max-[850px]:hidden block
+                  className={`mr-6 uppercase text-xs font-semibold max-[850px]:hidden block text-[#111827] dark:text-white 
                     ${
                       link.id === "6"
-                        ? "custom-gradient py-2 px-1.5 rounded-xl"
+                        ? "custom-gradient-white dark:custom-gradient py-2 px-1.5 rounded-xl "
                         : ""
                     }
                     ${
                       isActive
-                        ? "relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:bg-white"
+                        ? "relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full dark:before:bg-white before:bg-amber-500"
                         : ""
                     }
                   `}
@@ -67,7 +71,7 @@ const NavBar = () => {
                     <Link to={link.path} className="flex items-center">
                       {link.titleEn}
                       {link.id === "3" && (
-                        <IoMdArrowDropdown className="text-white text-xl" />
+                        <IoMdArrowDropdown className="dark:text-white text-xl" />
                       )}
                     </Link>
 
@@ -75,7 +79,7 @@ const NavBar = () => {
                     {link.id === "3" &&
                       openDropdown &&
                       Array.isArray(servicesData) && (
-                        <ul className="absolute top-full left-0 mt-2 w-40 bg-black text-white rounded-lg shadow-lg p-2">
+                        <ul className="absolute top-full left-0 mt-2 w-40 bg-[#f9fafb] dark:bg-black dark:text-white text-[#111827] rounded-lg shadow-lg p-2">
                           {servicesData?.map((item) => {
                             if (!item?.en_name) return null
                             const serviceSlug = `/${slugify(item.en_name)}`
@@ -106,16 +110,23 @@ const NavBar = () => {
                 onClick={() => setOpenSideBar(!openSideBar)}
                 className="cursor-pointer"
               >
-                <CgMenu className="text-2xl text-white" />
+                <CgMenu className="text-2xl dark:text-white text-[#111827]" />
               </span>
             </div>
           </ul>
         </nav>
 
         {/* Right icons */}
-        <div className="flex items-center gap-2 text-2xl cursor-pointer">
+        <div className="flex items-center gap-2 text-2xl cursor-pointer text-[#111827] dark:text-white">
           <FaLanguage />
-          <CiDark />
+
+          <div onClick={toggleDarkMode}>
+            {darkMode ? (
+              <CiDark className="dark:text-lightText  text-xl" />
+            ) : (
+              <IoSunnySharp className="dark:text-lightText text-xl" />
+            )}
+          </div>
         </div>
 
         {/* Overlay */}

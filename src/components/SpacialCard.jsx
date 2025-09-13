@@ -9,10 +9,10 @@ const SpacialCard = ({ title, Links, isLoading, error }) => {
   const hasLinks = Array.isArray(Links) && Links.length > 0
 
   return (
-    <div className="px-[20px] py-[35px] border-amber-700 border rounded-4xl h-full">
+    <div className="px-[20px] py-[35px] border-amber-700 border rounded-4xl h-full dark:bg-black bg-[#f9fafb]">
       {/* Heading */}
       <div className="text-center uppercase">
-        <h1 className="text-white text-xl">{title || "Untitled"}</h1>
+        <h1 className="text-[#f4911e] text-xl">{title || "Untitled"}</h1>
 
         <span
           className="w-full h-[1px] mt-1.5 mb-5 block"
@@ -29,7 +29,7 @@ const SpacialCard = ({ title, Links, isLoading, error }) => {
           {Links.map((item, idx) => (
             <li
               key={item?.id || idx}
-              className="relative uppercase text-[13px] font-medium mb-3 transform transition-all duration-300 ease-in-out hover:translate-x-[8px]
+              className="relative uppercase text-[13px] dark:text-white text-[#111827] font-medium mb-3 transform transition-all duration-300 ease-in-out hover:translate-x-[8px]
               before:content-[''] before:absolute before:left-[-12px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-amber-500 
               before:rounded-full before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
             >

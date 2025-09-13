@@ -17,26 +17,30 @@ const TechnologySection = () => {
       <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center">
         {/* Left Content */}
         <div className="flex flex-col gap-4 lg:w-[80%] w-full">
-          <div className="flex flex-row gap-4 items-center text-white justify-between">
+          <div className="flex flex-row gap-4 items-center justify-between">
             <span className="w-[30px] h-[30px] bg-[#f9b44c] rounded-full"></span>
-            <h3 className="uppercase font-semibold">Smart Systems</h3>
-            <span className="flex items-center justify-center px-7 py-1.5 border-amber-600 border rounded-3xl">
+            <h3 className="uppercase font-semibold text-[#111827] dark:text-white">
+              Smart Systems
+            </h3>
+            <span className="flex items-center justify-center px-7 py-1.5 border-amber-600 border rounded-3xl text-[#6b7280] dark:text-white">
               47%
             </span>
           </div>
-          <div className="flex flex-row gap-4 items-center text-white justify-between">
-            <span className="w-[30px] h-[30px] bg-[#f4911e] rounded-full"></span>
-            <h3 className="uppercase font-semibold">
+          <div className="flex flex-row gap-4 items-center  justify-between">
+            <span className="w-[30px] h-[30px] bg-[#f4911e] rounded-full "></span>
+            <h3 className="uppercase font-semibold text-[#111827] dark:text-white">
               AI &<br /> Automation
             </h3>
-            <span className="flex items-center justify-center px-7 py-1.5 border-amber-600 border rounded-3xl">
+            <span className="flex items-center justify-center px-7 py-1.5 border-amber-600 border rounded-3xl text-[#6b7280] dark:text-white">
               17%
             </span>
           </div>
-          <div className="flex flex-row gap-4 items-center text-white justify-between">
+          <div className="flex flex-row gap-4 items-center  justify-between">
             <span className="w-[30px] h-[30px] bg-[#c16e00] rounded-full"></span>
-            <h3 className="uppercase font-semibold">Cybersecurity</h3>
-            <span className="flex items-center justify-center px-7 py-1.5 border-amber-600 border rounded-3xl">
+            <h3 className="uppercase font-semibold text-[#111827] dark:text-white">
+              Cybersecurity
+            </h3>
+            <span className="flex items-center justify-center px-7 py-1.5 border-amber-600 border rounded-3xl text-[#6b7280] dark:text-white">
               24%
             </span>
           </div>
@@ -48,7 +52,7 @@ const TechnologySection = () => {
         {/* Right Content */}
         <div className="w-full h-[240px]">
           <div className="w-full h-full border-amber-600 border text-white flex items-center justify-center rounded-full px-4 py-4 text-center overflow-hidden relative">
-            <p className="relative z-5">
+            <p className="relative z-5 text-[#111827] dark:text-white">
               MBN is redefining what’s possible. Our approach combines
               innovation, intelligence, and infrastructure to deliver end-to-end
               digital solutions. From AI-powered systems to robust cybersecurity

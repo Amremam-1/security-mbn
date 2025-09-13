@@ -73,7 +73,7 @@ const ProjectSection = () => {
               <SwiperSlide key={project.id}>
                 <div className="group flex flex-col gap-2 text-center justify-center cursor-pointer">
                   {/* الصورة */}
-                  <div className="relative w-full h-[230px] bg-main border-2 border-orange-400 rounded-full overflow-hidden">
+                  <div className="relative w-full h-[230px] bg-[#f9fafb] dark:bg-main border-2 border-orange-400 rounded-full overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.en_name}
@@ -93,10 +93,10 @@ const ProjectSection = () => {
 
                   {/* النص */}
                   <div className="text-white min-h-[110px] flex flex-col mt-2">
-                    <h2 className="text-xl lg:text-2xl font-semibold">
+                    <h2 className="text-xl lg:text-2xl font-semibold text-[#111827] dark:text-white">
                       {project.en_name}
                     </h2>
-                    <p className="font-normal text-[14px]">
+                    <p className="font-normal text-[14px] text-[#6b7280] dark:text-white">
                       {project.en_description}
                     </p>
                   </div>

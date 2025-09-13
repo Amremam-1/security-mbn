@@ -6,7 +6,7 @@ import MainFooter from "../components/MainFooter"
 
 const ProjectsPage = () => {
   return (
-    <div className="bg-main">
+    <div className="bg-white dark:bg-black">
       <PageHeader
         title="Projects"
         icon={<GrProjects />}

@@ -12,7 +12,7 @@ const Banner = () => {
           <h1 className="font-semibold text-2xl md:text-3xl lg:text-4xl uppercase mb-1.5">
             MBN - Empowering Your Business with Advanced IT Solutions
           </h1>
-          <p className="font-normal text-[14px]">
+          <p className="font-medium text-[14px] text-[#6b7280] dark:text-white">
             MBN (Maher Bin Naif Al-Harithi Co. for IT Solutions) is a leading
             Saudi company providing integrated digital solutions including
             software development, AI, cybersecurity, IoT, smart systems,

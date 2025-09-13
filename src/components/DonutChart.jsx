@@ -51,7 +51,7 @@ const DonutChart = () => {
       </svg>
 
       {/* Center text */}
-      <div className="absolute text-center text-white font-bold text-xl leading-tight">
+      <div className="absolute text-center text-[#111827] dark:text-white font-bold text-xl leading-tight">
         HOLISTIC
         <br />
         TECH STRATEGY

@@ -31,7 +31,7 @@ const ServicesLayout = ({ defaultTitle }) => {
     )
 
   return (
-    <div className="bg-main min-h-screen flex flex-col">
+    <div className="bg-white dark:bg-black min-h-screen flex flex-col">
       {/* PageHeader */}
       <PageHeader
         title={activeItem ? activeItem.en_name : defaultTitle}
@@ -53,8 +53,8 @@ const ServicesLayout = ({ defaultTitle }) => {
                 onClick={() => setActiveItem(item)}
                 className={`p-3 text-center rounded-lg shadow-custom ${
                   activeItem?.id === item?.id
-                    ? "custom-gradient text-white"
-                    : "bg-transparent text-white"
+                    ? "custom-gradient text-white dark:text-black"
+                    : "bg-transparent text-black dark:text-white"
                 }`}
               >
                 {item?.en_name || "Untitled"}
@@ -75,10 +75,10 @@ const ServicesLayout = ({ defaultTitle }) => {
               </div>
 
               <div className="mt-4">
-                <h2 className="text-2xl font-bold mb-4">
+                <h2 className="text-2xl font-bold mb-4 text-[#111827] dark:text-white">
                   {activeItem?.en_name}
                 </h2>
-                <p>
+                <p className="text-[#6b7280] dark:text-white ">
                   {activeItem?.en_description || "No description available"}
                 </p>
 
@@ -98,14 +98,14 @@ const ServicesLayout = ({ defaultTitle }) => {
 
                     return (
                       <>
-                        <h3 className="text-xl font-bold mt-6 mb-2">
+                        <h3 className="text-xl font-bold mt-6 mb-2 text-[#111827] dark:text-white">
                           The Tools
                         </h3>
                         <ul className="list-disc list-inside space-y-2">
                           {toolsArray.map((tool, index) => (
                             <li
                               key={index}
-                              className="text-white font-medium text-xl"
+                              className="text-[#6b7280] dark:text-white font-medium text-xl"
                             >
                               • {tool}
                             </li>

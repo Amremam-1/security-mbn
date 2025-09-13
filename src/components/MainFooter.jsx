@@ -22,7 +22,7 @@ const MainFooter = () => {
       {/* Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 items-stretch">
         {/* Info */}
-        <div className="px-[20px] py-[35px] border-amber-700 border text-white rounded-4xl h-full">
+        <div className="px-[20px] py-[35px] border-amber-700 border text-white rounded-4xl h-full dark:bg-black bg-[#f9fafb]">
           <Link to="/">
             <img
               src="/assets/Logo.png"
@@ -43,7 +43,7 @@ const MainFooter = () => {
             <h4 className="text-[15px] text-[#f4911e] font-medium mb-1.5">
               MBN — Empowering Innovation
             </h4>
-            <p className="text-[14px]">
+            <p className="text-[14px] text-[#6b7280]">
               We craft smart digital solutions, creative content, and
               exceptional user experiences. From branding to development, MBN
               turns your vision into reality.
@@ -52,30 +52,34 @@ const MainFooter = () => {
 
           <div className="flex flex-col">
             <p className="flex gap-5 items-center mb-1.5">
-              <IoCallOutline className="text-xl" />
-              <span className="text-[13px]">920006943</span>
+              <IoCallOutline className="text-xl dark:text-white text-[#f4911e]" />
+              <span className="text-[13px] text-black dark:text-white">
+                920006943
+              </span>
             </p>
             <p className="flex gap-5 items-center mb-1.5">
-              <IoLocationOutline className="text-xl" />
-              <span className="text-[13px]">
+              <IoLocationOutline className="text-xl dark:text-white text-[#f4911e]" />
+              <span className="text-[13px] text-black dark:text-white">
                 MBN - Saudi Arabia , عبدالرحمن الداخل, An Nahdah, Jeddah 23523
               </span>
             </p>
             <p className="flex gap-5 items-center mb-1.5">
-              <MdOutlineMailOutline className="text-xl" />
-              <span className="text-[13px]">info@mahercp.net</span>
+              <MdOutlineMailOutline className="text-xl dark:text-white text-[#f4911e]" />
+              <span className="text-[13px] text-black dark:text-white">
+                info@mahercp.net
+              </span>
             </p>
           </div>
 
           <div className="flex items-center gap-2 mt-2  border border-amber-700 rounded-full w-fit px-4 py-2">
             <Link className="transition-all duration-300">
-              <FaInstagram className="transition-all duration-300 hover:text-amber-600 cursor-pointer" />
+              <FaInstagram className="transition-all duration-300 hover:text-amber-600 cursor-pointer dark:text-white text-[#f4911e]" />
             </Link>
             <Link>
-              <FaSnapchat className="transition-all duration-300 hover:text-amber-600 cursor-pointer" />
+              <FaSnapchat className="transition-all duration-300 hover:text-amber-600 cursor-pointer dark:text-white text-[#f4911e]" />
             </Link>
             <Link>
-              <CiLinkedin className="transition-all duration-300 hover:text-amber-600 cursor-pointer" />
+              <CiLinkedin className="transition-all duration-300 hover:text-amber-600 cursor-pointer dark:text-white text-[#f4911e]" />
             </Link>
           </div>
         </div>

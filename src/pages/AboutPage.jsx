@@ -6,7 +6,7 @@ import ClientSection from "../components/ClientSection"
 import MainFooter from "../components/MainFooter"
 const AboutPage = () => {
   return (
-    <div className="bg-main">
+    <div className="bg-white dark:bg-black">
       <PageHeader
         title="About Us"
         icon={<FaHome />}

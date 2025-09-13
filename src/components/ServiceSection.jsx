@@ -9,7 +9,7 @@ const ServiceSection = () => {
     error,
   } = useFetchQuery("services", "/services")
 
-  const [active, setActive] = useState(null)
+  const [active, setActive] = useState(0)
 
   const handleService = (id) => {
     setActive(id)
@@ -27,7 +27,7 @@ const ServiceSection = () => {
 
       <div className="mt-20 flex items-center gap-2 justify-between max-[768px]:flex-col cursor-pointer">
         {/* Services Links */}
-        <div className="flex-1/5 max-[1024px]:flex-2/4 flex gap-3.5 border">
+        <div className="flex-1/5 max-[1024px]:flex-2/4 flex gap-3.5">
           {/* Vertical Line */}
           <span className="w-[1px] rounded-4xl h-min-screen bg-gray-400 block"></span>
 
@@ -57,8 +57,8 @@ const ServiceSection = () => {
                           : ""
                       }`}
                     >
-                      <span className="absolute w-6 h-6 rounded-full border-[2px] border-white opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
-                      <span className="w-4 h-4 rounded-full bg-gradient-to-r from-orange-500 via-black to-orange-900 z-10"></span>
+                      <span className="absolute w-6 h-6 rounded-full border-[2px] border-[#e5e7eb] dark:border-white opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                      <span className="w-4 h-4 rounded-full bg-gradient-to-r dark:from-orange-500 dark:via-black dark:to-orange-900 z-10 bg-amber-500"></span>
                     </div>
                   </div>
 
@@ -70,10 +70,10 @@ const ServiceSection = () => {
                         : "opacity-75 transition-opacity"
                     } text-white w-[75%] max-[992px]:w-[80%] ml-2`}
                   >
-                    <h3 className="text-xl font-semibold mb-1">
+                    <h3 className="text-xl font-semibold mb-1 text-[#111827] dark:text-white">
                       {service.en_name}
                     </h3>
-                    <p className="text-sm text-gray-300">
+                    <p className="text-sm text-[#6b7280]">
                       {service.en_description}
                     </p>
                   </div>

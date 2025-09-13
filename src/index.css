@@ -1,10 +1,13 @@
 /* يجب أن تكون جميع @import في أعلى الملف */
+
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 body {
   font-family: "Syne", sans-serif;
 }
+
 
 ul {
   list-style: none;
@@ -74,6 +77,11 @@ body::-webkit-scrollbar-thumb {
   background: linear-gradient(90deg, #f4911e 0%, #000000 49%, #c16e00 100%);
 }
 
+.custom-gradient-white {
+  background: linear-gradient(90deg, #f4911e 0%, #000000 49%, #c16e00 100%);
+  color: #fff;
+}
+
 .shadow-custom {
   box-shadow: -4px 0 10px 0px #c16e00, 0px 0px 20px 0px #000, 4px 0 10px 0px #f9b44c;
 }
@@ -90,7 +98,7 @@ body::-webkit-scrollbar-thumb {
   background-color: linear-gradient(90deg, #c16e00 0%, #000 49%, #f4911e 100%);
 }
 
-.btn {
+/* .btn {
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 0;
@@ -104,6 +112,23 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
   background-color: #000;
   overflow: hidden;
+} */
+
+.btn {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0;
+  color: #000 !important;
+  /* نص غامق */
+  background: #fff;
+  /* زرار أبيض */
+  padding: 14px 60px;
+  border-radius: 50px;
+  position: relative;
+  border: none;
+  z-index: 10;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 @media (max-width: 425px) {
@@ -112,6 +137,19 @@ body::-webkit-scrollbar-thumb {
     font-size: 12px;
   }
 }
+
+/* .btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 2px;
+  background: linear-gradient(90deg, #ea9507 0%, #7a4700 49%, #ffb347 100%);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  z-index: 1;
+} */
+
 
 .btn::after {
   content: "";
@@ -125,6 +163,24 @@ body::-webkit-scrollbar-thumb {
   z-index: 1;
 }
 
+/* ✅ الوضع الليلي (Dark Mode) */
+.dark .btn {
+  color: #fff !important;
+  /* نص فاتح */
+  background: #000;
+  /* زرار أسود */
+}
+
+/* 
+.btn .particles {
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+} */
+/* Particles */
 .btn .particles {
   position: absolute;
   inset: 0;
@@ -134,7 +190,7 @@ body::-webkit-scrollbar-thumb {
   overflow: hidden;
 }
 
-.btn .particle {
+/* .btn .particle {
   position: absolute;
   width: 1.5px;
   height: 1.5px;
@@ -143,6 +199,27 @@ body::-webkit-scrollbar-thumb {
   animation: float 1.5s infinite linear;
   opacity: 0;
   transition: all 0.4s ease;
+} */
+
+.btn .particle {
+  position: absolute;
+  width: 1.5px;
+  height: 1.5px;
+  background: black;
+  /* Light mode */
+  border-radius: 50%;
+  animation: float 1.5s infinite linear;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+/* .btn:hover .particle {
+  opacity: 1;
+} */
+
+.dark .btn .particle {
+  background: white;
+  /* Dark mode */
 }
 
 .btn:hover .particle {

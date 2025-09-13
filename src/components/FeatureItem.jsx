@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const FeatureItem = ({ title, icon, description, align = "left" }) => {
   return (
@@ -13,8 +13,10 @@ const FeatureItem = ({ title, icon, description, align = "left" }) => {
         <span className="text-lg">{icon}</span>
       </div>
       <div className="max-w-xs">
-        <h3 className="font-semibold text-white">{title}</h3>
-        <p className="text-sm text-gray-300">{description}</p>
+        <h3 className="font-semibold text-[#111827] dark:text-white">
+          {title}
+        </h3>
+        <p className="text-sm text-[#6b7280]">{description}</p>
       </div>
 
       <div
@@ -23,7 +25,7 @@ const FeatureItem = ({ title, icon, description, align = "left" }) => {
         } not-md:hidden`}
       ></div>
     </div>
-  );
-};
+  )
+}
 
-export default FeatureItem;
+export default FeatureItem
