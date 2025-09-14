@@ -1,6 +1,9 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 
 const DonutChart = () => {
+  const { t } = useTranslation()
+
   const data = [
     { value: 48, color: "#fbbf24" }, // SMART SYSTEMS
     { value: 17, color: "#f59e0b" }, // AI & AUTOMATION
@@ -52,9 +55,9 @@ const DonutChart = () => {
 
       {/* Center text */}
       <div className="absolute text-center text-[#111827] dark:text-white font-bold text-xl leading-tight">
-        HOLISTIC
+        {t("strategy_title_line1")}
         <br />
-        TECH STRATEGY
+        {t("strategy_title_line2")}
       </div>
     </div>
   )

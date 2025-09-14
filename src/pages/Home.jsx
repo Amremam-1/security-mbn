@@ -9,10 +9,13 @@ import TechnologySection from "../components/TechnologySection"
 import ClientSection from "../components/ClientSection"
 import ContactSection from "../components/ContactSection"
 import MainFooter from "../components/MainFooter"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const Home = () => {
   return (
     <div>
+      <ToastContainer position="top-right" autoClose={3000} />
       <Intro />
       <AboutSection />
       <ServiceSection />

@@ -3,14 +3,16 @@ import TextSection from "./TextSection"
 import { leftItems, rightItems } from "../constants"
 import FeatureItem from "./FeatureItem"
 import CircleImage from "./CircleImage"
+import { useTranslation } from "react-i18next"
 
 const AboutSection = () => {
+  const { t, i18n } = useTranslation()
+
   return (
     <div className="container pt-40 max-[768px]:pt-20">
       <TextSection
-        title="About mbn"
-        subtitle="MBN (Maher Bin Naif Al-Harithi Co. for IT Solutions) — Pioneering smart tech and digital 
-        innovation to elevate businesses with creative, secure, and future-ready solutions."
+        title={t("about_title")}
+        subtitle={t("about_subtitle")}
         classes={false}
       />
 
@@ -21,8 +23,10 @@ const AboutSection = () => {
             <FeatureItem
               key={index}
               icon={item.icon}
-              title={item.title}
-              description={item.description}
+              title={i18n.language === "en" ? item.titleEn : item.titleAr}
+              description={
+                i18n.language === "en" ? item.descriptionEn : item.descriptionAr
+              }
               align="right"
             />
           ))}
@@ -39,8 +43,10 @@ const AboutSection = () => {
             <FeatureItem
               key={index}
               icon={item.icon}
-              title={item.title}
-              description={item.description}
+              title={i18n.language === "en" ? item.titleEn : item.titleAr}
+              description={
+                i18n.language === "en" ? item.descriptionEn : item.descriptionAr
+              }
               align="left"
             />
           ))}

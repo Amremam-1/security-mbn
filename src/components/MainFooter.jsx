@@ -9,6 +9,7 @@ import { CiLinkedin } from "react-icons/ci"
 import SpacialCard from "./SpacialCard"
 import { navigations, policies } from "../constants"
 import useFetchQuery from "../constants/useFetchQuery"
+import { useTranslation } from "react-i18next"
 
 const MainFooter = () => {
   const {
@@ -16,6 +17,8 @@ const MainFooter = () => {
     isLoading,
     error,
   } = useFetchQuery("services", "/services")
+
+  const { t } = useTranslation()
 
   return (
     <div className="container pt-30 max-[768px]:pt-20">
@@ -41,13 +44,9 @@ const MainFooter = () => {
 
           <div className="mb-5">
             <h4 className="text-[15px] text-[#f4911e] font-medium mb-1.5">
-              MBN — Empowering Innovation
+              {t("mbn_title")}
             </h4>
-            <p className="text-[14px] text-[#6b7280]">
-              We craft smart digital solutions, creative content, and
-              exceptional user experiences. From branding to development, MBN
-              turns your vision into reality.
-            </p>
+            <p className="text-[14px] text-[#6b7280]">{t("mbn_description")}</p>
           </div>
 
           <div className="flex flex-col">
@@ -60,7 +59,7 @@ const MainFooter = () => {
             <p className="flex gap-5 items-center mb-1.5">
               <IoLocationOutline className="text-xl dark:text-white text-[#f4911e]" />
               <span className="text-[13px] text-black dark:text-white">
-                MBN - Saudi Arabia , عبدالرحمن الداخل, An Nahdah, Jeddah 23523
+                {t("mbn_address")}
               </span>
             </p>
             <p className="flex gap-5 items-center mb-1.5">
@@ -86,18 +85,18 @@ const MainFooter = () => {
 
         {/* Card Links */}
 
-        <SpacialCard title="Quick Links" Links={navigations} />
+        <SpacialCard title={t("quick_links")} Links={navigations} />
         <SpacialCard
-          title="Services"
+          title={t("services")}
           Links={Array.isArray(Links) ? Links : []}
           isLoading={isLoading}
           error={error}
         />
-        <SpacialCard title="Legal & Policies" Links={policies} />
+        <SpacialCard title={t("legal_policies")} Links={policies} />
       </div>
 
-      <div className="pt-5 pb-4 text-white text-center">
-        <p>© 2016 MBN Group. All rights reserved</p>
+      <div className="pt-7 pb-4 dark:text-white font-semibold text-center">
+        <p>{t("footer_copy")}</p>
       </div>
     </div>
   )

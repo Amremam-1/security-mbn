@@ -1,15 +1,17 @@
 import React from "react"
 import { clients } from "../constants"
+import { useTranslation } from "react-i18next"
 
 const ClientSection = () => {
+  const { t } = useTranslation()
   return (
     <div className="container pt-40 max-[768px]:pt-20">
       <div className="text-center m-auto">
         <h1 className="uppercase text-2xl lg:text-4xl font-bold bg-gradient-to-r from-[#f9b44c] to-[#f4911e] bg-clip-text text-transparent">
-          Our Trusted Clients
+          {t("clients_title")}
         </h1>
         <p className="text-white opacity-50 mt-1.5 mb-[30px]">
-          MBN proudly collaborates with industry leaders across various sectors.
+          {t("clients_subtitle")}
         </p>
       </div>
 

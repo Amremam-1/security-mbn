@@ -10,10 +10,12 @@ import { slugify } from "../utils/slugify"
 import { CgMenu } from "react-icons/cg"
 import SideBar from "./SideBar"
 import ThemeContext from "./ThemeContext"
+import { useTranslation } from "react-i18next"
 
 const NavBar = () => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext)
 
+  const { i18n } = useTranslation()
   const location = useLocation()
   const [openDropdown, setOpenDropdown] = useState(false)
   const [openSideBar, setOpenSideBar] = useState(false)
@@ -21,6 +23,12 @@ const NavBar = () => {
     "services",
     "/services"
   )
+
+  const [openLangDropdown, setOpenLangDropdown] = useState(false) // language dropdown
+
+  const handlelanguage = () => {
+    setOpenLangDropdown(!openLangDropdown)
+  }
 
   if (isLoading) return <p>Loading..</p>
 
@@ -69,7 +77,7 @@ const NavBar = () => {
                     }
                   >
                     <Link to={link.path} className="flex items-center">
-                      {link.titleEn}
+                      {i18n.language === "en" ? link.titleEn : link.titleAr}
                       {link.id === "3" && (
                         <IoMdArrowDropdown className="dark:text-white text-xl" />
                       )}
@@ -95,7 +103,11 @@ const NavBar = () => {
                                     : "hover:bg-gray-200 hover:text-black"
                                 }`}
                               >
-                                <Link to={serviceSlug}>{item.en_name}</Link>
+                                <Link to={serviceSlug}>
+                                  {i18n.language === "en"
+                                    ? item.en_name
+                                    : item.ar_name}
+                                </Link>
                               </li>
                             )
                           })}
@@ -118,7 +130,46 @@ const NavBar = () => {
 
         {/* Right icons */}
         <div className="flex items-center gap-2 text-2xl cursor-pointer text-[#111827] dark:text-white">
-          <FaLanguage />
+          <div className="relative text-sm">
+            <button
+              onClick={handlelanguage}
+              className="flex items-center gap-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            >
+              <FaLanguage className="text-lg" />
+
+              <span>{i18n.language === "en" ? "English" : "العربية"}</span>
+              <IoMdArrowDropdown className="text-base" />
+            </button>
+
+            {openLangDropdown && (
+              <ul className="absolute right-0 mt-2 w-32 bg-white dark:bg-black text-sm rounded-lg shadow-md overflow-hidden z-50">
+                <li
+                  onClick={() => {
+                    i18n.changeLanguage("en")
+                    localStorage.setItem("i18nextLng", "en") // ✅ يخزن اللغة
+                    setOpenLangDropdown(false)
+                  }}
+                  className={`px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 ${
+                    i18n.language === "en" ? "font-semibold text-amber-600" : ""
+                  }`}
+                >
+                  English
+                </li>
+                <li
+                  onClick={() => {
+                    i18n.changeLanguage("ar")
+                    localStorage.setItem("i18nextLng", "ar") // ✅ يخزن اللغة
+                    setOpenLangDropdown(false)
+                  }}
+                  className={`px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 ${
+                    i18n.language === "ar" ? "font-semibold text-amber-600" : ""
+                  }`}
+                >
+                  العربية
+                </li>
+              </ul>
+            )}
+          </div>
 
           <div onClick={toggleDarkMode}>
             {darkMode ? (
@@ -133,7 +184,7 @@ const NavBar = () => {
         <div
           className={`fixed inset-0 bg-black/50 z-20 transition-opacity duration-300 ease-in-out
     ${openSideBar ? "opacity-100 visible" : "opacity-0 invisible"}`}
-          onClick={() => setOpenSideBar(false)} // كليك برة يقفل
+          onClick={() => setOpenSideBar(false)}
         ></div>
 
         {/* SideBar */}

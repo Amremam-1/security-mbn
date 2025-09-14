@@ -1,7 +1,10 @@
 import React from "react"
 import Button from "./Button"
+import { useTranslation } from "react-i18next"
 
 const Banner = () => {
+  const { t } = useTranslation()
+
   return (
     <section
       style={{ backgroundImage: "url('/assets/banner.jpg')" }}
@@ -10,17 +13,13 @@ const Banner = () => {
       <div className="container w-full h-full">
         <div className="flex flex-col items-start max-[768px]:items-center max-[768px]:m-auto text-white w-[70%] max-[768px]:w-full">
           <h1 className="font-semibold text-2xl md:text-3xl lg:text-4xl uppercase mb-1.5">
-            MBN - Empowering Your Business with Advanced IT Solutions
+            {t("banner_title")}
           </h1>
           <p className="font-medium text-[14px] text-[#6b7280] dark:text-white">
-            MBN (Maher Bin Naif Al-Harithi Co. for IT Solutions) is a leading
-            Saudi company providing integrated digital solutions including
-            software development, AI, cybersecurity, IoT, smart systems,
-            robotics, and digital marketing. Secure and grow your business with
-            our innovative and tailored technologies.
+            {t("banner_subtitle")}
           </p>
 
-          <Button title="Explore Our Services" />
+          <Button title={t("banner_button")} />
         </div>
       </div>
     </section>

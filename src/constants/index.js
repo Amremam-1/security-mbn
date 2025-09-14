@@ -9,37 +9,37 @@ export const navigations = [
   {
     id: "1",
     titleEn: "Home",
-    titleAr: "",
+    titleAr: "الرئيسية",
     path: "/",
   },
   {
     id: "2",
     titleEn: "About Us",
-    titleAr: "",
+    titleAr: "من نحن",
     path: "/about",
   },
   {
     id: "3",
     titleEn: "Services",
-    titleAr: "",
+    titleAr: "خدماتنا",
     path: "",
   },
   {
     id: "4",
     titleEn: "Projects",
-    titleAr: "",
+    titleAr: "المشاريع",
     path: "/project",
   },
   {
     id: "5",
     titleEn: "Contact Us",
-    titleAr: "",
+    titleAr: "تواصل معنا",
     path: "/contact",
   },
   {
     id: "6",
     titleEn: "Request A Quote",
-    titleAr: "",
+    titleAr: "طلب عرض سعر",
     path: "",
   },
 ]
@@ -47,42 +47,59 @@ export const navigations = [
 export const leftItems = [
   {
     icon: "💡",
-    title: "Integrated Services",
-    description:
+    titleEn: "Integrated Services",
+    titleAr: "خدمات متكاملة",
+    descriptionEn:
       "Custom software, smart platforms, and scalable IT systems tailored to your business.",
+    descriptionAr:
+      "برمجيات مخصصة، ومنصات ذكية، وأنظمة تقنية قابلة للتوسع مصممة خصيصًا لعملك.",
   },
   {
     icon: "👥",
-    title: "Expert Team",
-    description:
+    titleEn: "Expert Team",
+    titleAr: "فريق خبراء",
+    descriptionEn:
       "Engineers, developers, analysts, digital marketing, and innovators passionate about tech solutions.",
+    descriptionAr:
+      "مهندسون، مطورون، محللون، تسويق رقمي، ومبتكرون شغوفون بالحلول التقنية.",
   },
   {
     icon: "❓",
-    title: "Why MBN?",
-    description:
+    titleEn: "Why MBN?",
+    titleAr: "لماذا MBN؟",
+    descriptionEn:
       "Local understanding, global standards, and full commitment to digital success.",
+    descriptionAr: "فهم محلي، معايير عالمية، والتزام كامل بالنجاح الرقمي.",
   },
 ]
 
 export const rightItems = [
   {
     icon: "🚀",
-    title: "Our Mission",
-    description:
+    titleEn: "Our Mission",
+    titleAr: "مهمتنا",
+    descriptionEn:
       "Empowering organizations with smart and secure digital technologies to drive transformation.",
+    descriptionAr:
+      "تمكين المؤسسات بالتقنيات الرقمية الذكية والآمنة لدفع عجلة التحول.",
   },
   {
     icon: "👁️",
-    title: "Our Vision",
-    description:
+    titleEn: "Our Vision",
+    titleAr: "رؤيتنا",
+    descriptionEn:
       "To become a regional leader in digital innovation and smart technologies.",
+    descriptionAr:
+      "أن نصبح روادًا إقليميين في الابتكار الرقمي والتقنيات الذكية.",
   },
   {
     icon: "📊",
-    title: "Our Expertise",
-    description:
+    titleEn: "Our Expertise",
+    titleAr: "خبراتنا",
+    descriptionEn:
       "Proven record in digital systems, cloud integration, AI, and tech consulting.",
+    descriptionAr:
+      "سجل مثبت في الأنظمة الرقمية، تكامل السحابة، الذكاء الاصطناعي، والاستشارات التقنية.",
   },
 ]
 
@@ -136,111 +153,52 @@ export const industriesServices = [
     id: 1,
     icon: RiGovernmentLine,
     titleEn: "Government",
-    titleAr: "",
+    titleAr: "القطاع الحكومي",
     descriptionEn:
       "Empowering public sectors with secure digital transformation.",
-    descriptionAr: "",
+    descriptionAr: "تمكين القطاعات الحكومية من التحول الرقمي الآمن.",
   },
   {
     id: 2,
     icon: FaGraduationCap,
     titleEn: "Education",
-    titleAr: "",
+    titleAr: "التعليم",
     descriptionEn: "Smart systems to enhance digital learning environments.",
-    descriptionAr: "",
+    descriptionAr: "أنظمة ذكية لتعزيز بيئات التعلم الرقمية.",
   },
   {
     id: 3,
     icon: MdBusinessCenter,
     titleEn: "Small Businesses",
-    titleAr: "",
+    titleAr: "الشركات الصغيرة",
     descriptionEn: "Affordable, scalable solutions for growing enterprises.",
-    descriptionAr: "",
+    descriptionAr: "حلول ميسورة ومرنة لدعم نمو الشركات الصغيرة.",
   },
   {
     id: 4,
     icon: AiFillCustomerService,
     titleEn: "Retail",
-    titleAr: "",
+    titleAr: "التجزئة",
     descriptionEn:
       "Innovative retail technologies that enhance customer experience.",
-    descriptionAr: "",
+    descriptionAr: "تقنيات تجزئة مبتكرة تعزز تجربة العملاء.",
   },
   {
     id: 5,
     icon: PiHandHeartBold,
     titleEn: "Healthcare",
-    titleAr: "",
+    titleAr: "الرعاية الصحية",
     descriptionEn: "Smart solutions to enhance patient care and data security.",
-    descriptionAr: "",
+    descriptionAr: "حلول ذكية لتحسين رعاية المرضى وأمن البيانات.",
   },
   {
     id: 6,
     icon: MdBarChart,
     titleEn: "Finance",
-    titleAr: "",
+    titleAr: "القطاع المالي",
     descriptionEn:
       "Robust systems ensuring security and innovation in financial services.",
-    descriptionAr: "",
-  },
-]
-
-export const projects = [
-  {
-    id: "01",
-    imgUrl: "/assets/coffee.png",
-    path: "",
-    title: "Nestritto Coffee",
-    subtitle:
-      "  An elegant online store offering premium coffee and accessories. Discover quality products, smooth shopping experience, and secure checkout — all tailored for coffee lovers.",
-  },
-  {
-    id: "02",
-    imgUrl: "/assets/coffee.png",
-    path: "",
-    title: "Hamad Center",
-    subtitle:
-      "We produced a professional motion graphics video for Hamad Center to promote their services and enhance their brand identity through visual storytelling.",
-  },
-  {
-    id: "03",
-    imgUrl: "/assets/coffee.png",
-    path: "",
-    title: "OFFLIX ",
-    subtitle:
-      "OFFLIX is an in-flight entertainment platform that allows passengers to enjoy a curated selection of movies and series without the need for an internet connection — ensuring a seamless and enjoyable travel experience.",
-  },
-  {
-    id: "04",
-    imgUrl: "/assets/coffee.png",
-    path: "",
-    title: "Investment House",
-    subtitle:
-      "We produced a high-quality motion graphics video for Investment House, showcasing their innovative investment solutions and reinforcing their brand presence.",
-  },
-  {
-    id: "05",
-    imgUrl: "/assets/coffee.png",
-    path: "",
-    title: "Imatah Al-Adha Association",
-    subtitle:
-      "We created an impactful motion graphics video for Imatah Al-Adha Association, highlighting their humanitarian goals and raising awareness about their charitable initiatives.",
-  },
-  {
-    id: "06",
-    imgUrl: "/assets/coffee.png",
-    path: "",
-    title: "Saudi Judo Federation ",
-    subtitle:
-      "  A dynamic and modern website designed for the Saudi Judo Federation to showcase national activities, competitions, athlete development, and official announcements — all in an engaging and accessible format.",
-  },
-  {
-    id: "07",
-    imgUrl: "/assets/coffee.png",
-    path: "",
-    title: "M11",
-    subtitle:
-      "M11 is an entertainment platform that provides users with a rich library of movies, series, and shows — all accessible without an internet connection. It’s designed to deliver a seamless offline viewing experience anytime, anywhere.",
+    descriptionAr: "أنظمة قوية تضمن الأمان والابتكار في الخدمات المالية.",
   },
 ]
 
@@ -319,19 +277,43 @@ export const policies = [
   {
     id: "0",
     titleEn: "Terms & Conditions",
-    titleAr: "",
+    titleAr: "الشروط والأحكام",
     path: "",
   },
   {
     id: "1",
     titleEn: "Privacy Policy",
-    titleAr: "",
+    titleAr: "سياسة الخصوصية",
     path: "",
   },
   {
     id: "2",
     titleEn: "Security Standards",
-    titleAr: "",
+    titleAr: "معايير الأمان",
     path: "",
+  },
+]
+
+export const techStats = [
+  {
+    id: 1,
+    color: "#f9b44c",
+    titleEn: "Smart Systems",
+    titleAr: "الأنظمة الذكية",
+    percentage: "47%",
+  },
+  {
+    id: 2,
+    color: "#f4911e",
+    titleEn: "AI & Automation",
+    titleAr: "الذكاء الاصطناعي والأتمتة",
+    percentage: "17%",
+  },
+  {
+    id: 3,
+    color: "#c16e00",
+    titleEn: "Cybersecurity",
+    titleAr: "الأمن السيبراني",
+    percentage: "24%",
   },
 ]

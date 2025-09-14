@@ -1,6 +1,8 @@
 import Button from "./Button"
+import { useTranslation } from "react-i18next"
 
 const Intro = () => {
+  const { t } = useTranslation()
   return (
     <section
       className="mt-[50px] max-[450px]:mt-[0px] relative text-[#111827]  dark:text-white min-h-screen flex flex-col items-center 
@@ -29,22 +31,7 @@ const Intro = () => {
               className="stroke-[#000000] dark:stroke-white"
               strokeWidth="0.3"
             />
-            {/* <circle
-              cx="400"
-              cy="400"
-              r="305"
-              stroke="#ffffff"
-              strokeWidth="0.6"
-              // strokeDasharray="5 5"
-            /> */}
-            {/* <circle
-              cx="400"
-              cy="400"
-              r="260"
-              stroke="#ffffff"
-              strokeWidth="0.6"
-              // strokeDasharray="5 5"
-            /> */}
+
             <circle
               cx="400"
               cy="400"
@@ -74,17 +61,13 @@ const Intro = () => {
 
       {/* Headline */}
       <h1 className="text-xl sm:text-3xl lg:text-4xl font-bold leading-tight max-w-5xl z-10">
-        MBN TECHNOLOGY SOLUTIONS: YOUR <br />
-        GATEWAY TO COMPLETE DIGITAL INNOVATION
+        {t("hero_title_line1")} <br />
+        {t("hero_title_line2")}
       </h1>
 
       {/* Description */}
       <p className="mt-6 mb-5 max-w-2xl text-sm sm:text-base text-[#000] dark:text-gray-300 leading-relaxed z-10">
-        MBN provides end-to-end technology solutions covering all aspects of the
-        digital world — from software development, cybersecurity, AI, cloud
-        computing, and IoT to digital marketing, automation, and tech
-        consulting. We help businesses and individuals transform, secure, and
-        grow in the digital age. Future-ready starts here.
+        {t("hero_description")}
       </p>
 
       {/* Scroll to Top Button */}
@@ -95,7 +78,7 @@ const Intro = () => {
         ↑
       </button>
 
-      <Button title="Explore More" />
+      <Button title={t("hero_button")} />
     </section>
   )
 }

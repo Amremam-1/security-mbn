@@ -3,18 +3,21 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import useFetchQuery from "../constants/useFetchQuery"
 import { useAddData } from "../constants/useAddData"
-
-const schema = z.object({
-  name: z.string().min(3, "Name must be at least 3 characters"),
-  email: z.string().email("Invalid email address"),
-  message: z.string().min(3, "Your message must be at least 3 characters"),
-  phone: z.string().min(7, "Phone number is required"),
-  service_id: z.string().min(1, "Please select a service"),
-})
+import { useTranslation } from "react-i18next"
+import { toast } from "react-toastify"
 
 const Form = () => {
-  const { data, isLoading, error } = useFetchQuery("services", "/services")
+  const { t, i18n } = useTranslation()
+  const { data, isLoading } = useFetchQuery("services", "/services")
   const { mutate: addFormData, isPending } = useAddData("contactRequests")
+
+  const schema = z.object({
+    name: z.string().min(3, t("name_required")),
+    email: z.string().email(t("email_invalid")),
+    message: z.string().min(3, t("message_required")),
+    phone: z.string().min(7, t("phone_required")),
+    service_id: z.string().min(1, t("service_required")),
+  })
 
   const {
     register,
@@ -24,21 +27,15 @@ const Form = () => {
   } = useForm({ resolver: zodResolver(schema) })
 
   const onSubmit = (formData) => {
-    const payload = {
-      name: formData.name,
-      email: formData.email,
-      message: formData.message,
-      phone: formData.phone,
-      service_id: formData.service_id,
-    }
+    const payload = { ...formData }
 
     addFormData(payload, {
       onSuccess: () => {
-        console.log("Form sent successfully ✅")
+        toast.success(t("success"))
         reset()
       },
       onError: () => {
-        console.log("Something went wrong ❌")
+        toast.error(t("error"))
       },
     })
   }
@@ -52,7 +49,7 @@ const Form = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 mb-10">
       <input
         {...register("name")}
-        placeholder="Full Name"
+        placeholder={t("full_name")}
         className={inputClass}
       />
       {errors.name && (
@@ -62,7 +59,7 @@ const Form = () => {
       <input
         {...register("email")}
         type="email"
-        placeholder="Email Address"
+        placeholder={t("email_address")}
         className={inputClass}
       />
       {errors.email && (
@@ -72,8 +69,12 @@ const Form = () => {
       <input
         {...register("phone")}
         type="tel"
-        placeholder="Phone Number"
-        className={inputClass}
+        placeholder={i18n.language === "ar" ? "رقم الهاتف" : "Phone Number"}
+        className={`${inputClass} ${
+          i18n.language === "ar"
+            ? "text-right placeholder:text-right"
+            : "text-left placeholder:text-left"
+        }`}
       />
       {errors.phone && (
         <p className="text-red-500 text-[12px]">{errors.phone.message}</p>
@@ -81,12 +82,12 @@ const Form = () => {
 
       <select
         {...register("service_id")}
-        className={`border-none bg-[#f9fafb] dark:bg-black w-full px-4 py-2 rounded-full border-[1px] text-[#111827] dark:text-white placeholder-white outline-none ring-1 ring-orange-400`}
+        className={`border-none bg-[#f9fafb] dark:bg-black w-full px-4 py-2 rounded-full text-[#111827] dark:text-white outline-none ring-1 ring-orange-400`}
       >
-        <option value="">Service Inquiry</option>
+        <option value="">{t("service_inquiry")}</option>
         {data.map((item) => (
           <option key={item.id} value={item?.id}>
-            {item?.en_name}
+            {i18n.language === "en" ? item?.en_name : item?.ar_name}
           </option>
         ))}
       </select>
@@ -96,7 +97,7 @@ const Form = () => {
 
       <textarea
         {...register("message")}
-        placeholder="message"
+        placeholder={t("message")}
         className={`border-none h-[100px] rounded-xl mt-2 ${inputClass}`}
       />
       {errors.message && (
@@ -104,7 +105,7 @@ const Form = () => {
       )}
 
       <button type="submit" className="btn shadow-custom-hover w-[200px] mt-4">
-        {isPending ? "Sending..." : "Submit"}
+        {isPending ? t("sending") : t("submit")}
       </button>
     </form>
   )

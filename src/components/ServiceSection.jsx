@@ -1,8 +1,11 @@
 import { useState } from "react"
 import TextSection from "./TextSection"
 import useFetchQuery from "../constants/useFetchQuery"
+import { useTranslation } from "react-i18next"
 
 const ServiceSection = () => {
+  const { t, i18n } = useTranslation()
+
   const {
     data: servicesData,
     isLoading,
@@ -20,8 +23,8 @@ const ServiceSection = () => {
   return (
     <div className="container pt-40 max-[768px]:pt-20">
       <TextSection
-        title="Services"
-        subtitle="Comprehensive digital and IT solutions to empower your business with innovation, security, and creativity."
+        title={t("service_title")}
+        subtitle={t("service_subtitle")}
         classes={true}
       />
 
@@ -49,7 +52,7 @@ const ServiceSection = () => {
                   onMouseEnter={() => handleService(service.id)}
                 >
                   {/* Circle on the line */}
-                  <div className="absolute -left-[22px] top-[6px]">
+                  <div className="absolute -start-[22px] top-[6px]">
                     <div
                       className={`${
                         active === service.id
@@ -68,19 +71,27 @@ const ServiceSection = () => {
                       active === service.id
                         ? "opacity-100"
                         : "opacity-75 transition-opacity"
-                    } text-white w-[75%] max-[992px]:w-[80%] ml-2`}
+                    } text-white w-[75%] max-[992px]:w-[80%] ms-2`}
                   >
                     <h3 className="text-xl font-semibold mb-1 text-[#111827] dark:text-white">
-                      {service.en_name}
+                      {i18n.language === "en"
+                        ? service.en_name
+                        : service.ar_name}
                     </h3>
                     <p className="text-sm text-[#6b7280]">
-                      {service.en_description}
+                      {i18n.language === "en"
+                        ? service.en_description
+                        : service.ar_description}
                     </p>
                   </div>
                 </li>
               ))
             ) : (
-              <p className="text-gray-400">No services available</p>
+              <p className="text-gray-400">
+                {i18n.language === "en"
+                  ? "No services available"
+                  : "لا يوجد خدمات متاحة"}
+              </p>
             )}
           </ul>
         </div>

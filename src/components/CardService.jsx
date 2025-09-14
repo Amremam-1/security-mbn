@@ -1,6 +1,9 @@
 import { industriesServices } from "../constants"
+import { useTranslation } from "react-i18next"
 
 const CardService = () => {
+  const { i18n } = useTranslation()
+
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-10 mt-20">
       {industriesServices.map((item) => (
@@ -15,10 +18,10 @@ const CardService = () => {
               </span>
             </li>
             <li className="font-semibold text-xl text-[#111827] dark:text-white">
-              {item.titleEn}
+              {i18n.language === "en" ? item.titleEn : item.titleAr}
             </li>
-            <li className="font-normal text-[15px] text-[#6b7280] dark:text-white">
-              {item.descriptionEn}
+            <li className="font-normal text-[15px] text-[#6b7280]">
+              {i18n.language === "en" ? item.descriptionEn : item.descriptionAr}
             </li>
           </ul>
 

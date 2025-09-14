@@ -98,21 +98,6 @@ body::-webkit-scrollbar-thumb {
   background-color: linear-gradient(90deg, #c16e00 0%, #000 49%, #f4911e 100%);
 }
 
-/* .btn {
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0;
-  color: #fff !important;
-  background: var(--black);
-  padding: 14px 60px;
-  border-radius: 50px;
-  position: relative;
-  border: none;
-  z-index: 10;
-  cursor: pointer;
-  background-color: #000;
-  overflow: hidden;
-} */
 
 .btn {
   font-weight: 600;
@@ -138,17 +123,6 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-/* .btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50px;
-  padding: 2px;
-  background: linear-gradient(90deg, #ea9507 0%, #7a4700 49%, #ffb347 100%);
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  z-index: 1;
-} */
 
 
 .btn::after {
@@ -171,15 +145,7 @@ body::-webkit-scrollbar-thumb {
   /* زرار أسود */
 }
 
-/* 
-.btn .particles {
-  position: absolute;
-  inset: 0;
-  border-radius: 50px;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-} */
+
 /* Particles */
 .btn .particles {
   position: absolute;
@@ -190,16 +156,6 @@ body::-webkit-scrollbar-thumb {
   overflow: hidden;
 }
 
-/* .btn .particle {
-  position: absolute;
-  width: 1.5px;
-  height: 1.5px;
-  background: white;
-  border-radius: 50%;
-  animation: float 1.5s infinite linear;
-  opacity: 0;
-  transition: all 0.4s ease;
-} */
 
 .btn .particle {
   position: absolute;
@@ -212,10 +168,6 @@ body::-webkit-scrollbar-thumb {
   opacity: 0;
   transition: all 0.4s ease;
 }
-
-/* .btn:hover .particle {
-  opacity: 1;
-} */
 
 .dark .btn .particle {
   background: white;

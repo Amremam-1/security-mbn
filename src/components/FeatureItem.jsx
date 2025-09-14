@@ -21,7 +21,7 @@ const FeatureItem = ({ title, icon, description, align = "left" }) => {
 
       <div
         className={`absolute border-t border-dashed border-gray-300 w-30 ${
-          align === "right" ? "-right-30" : "-left-30"
+          align === "right" ? "-end-30" : "-start-30"
         } not-md:hidden`}
       ></div>
     </div>
