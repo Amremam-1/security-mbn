@@ -247,7 +247,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   50% {
-    transform: translateX(-100px);
+    transform: translateX(-50px);
 
   }
 

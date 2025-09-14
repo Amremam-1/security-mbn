@@ -12,9 +12,9 @@ const ContactSection = () => {
         subtitle={t("contact_subtitle")}
         classes={true}
       />
-      <div className="mt-20 flex justify-between max-[768px]:flex-col">
+      <div className="mt-20 flex justify-between max-[991px]:flex-col">
         {/* Form  */}
-        <div className="w-[50%] max-[768px]:w-full">
+        <div className="w-[50%] max-[991px]:w-full">
           <Form />
         </div>
         <div className="w-full flex-2/5 max-[1024px]:flex-2/4 relative">

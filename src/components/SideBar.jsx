@@ -2,10 +2,13 @@ import React, { useState } from "react"
 import { CgClose } from "react-icons/cg"
 import { Link, useLocation } from "react-router-dom"
 import { slugify } from "../utils/slugify"
+import { useTranslation } from "react-i18next"
 
 const SideBar = ({ setOpenSideBar, navigations, servicesData }) => {
   const location = useLocation()
   const [showServices, setShowServices] = useState(false)
+
+  const { t, i18n } = useTranslation()
 
   return (
     <div className="px-3 py-4 text-white h-full overflow-y-auto">
@@ -48,7 +51,7 @@ const SideBar = ({ setOpenSideBar, navigations, servicesData }) => {
                     }
                   }}
                 >
-                  {link.titleEn}
+                  {i18n.language === "en" ? link.titleEn : link.titleAr}
                 </Link>
 
                 {/* Services Dropdown */}
@@ -72,7 +75,9 @@ const SideBar = ({ setOpenSideBar, navigations, servicesData }) => {
                             // خلي الضغط على service يخلي Sidebar مفتوح
                             onClick={() => {}}
                           >
-                            {item.en_name}
+                            {i18n.language === "en"
+                              ? item.en_name
+                              : item.ar_name}
                           </Link>
                         </li>
                       )

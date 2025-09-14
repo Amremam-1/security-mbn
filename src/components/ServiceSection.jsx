@@ -28,7 +28,7 @@ const ServiceSection = () => {
         classes={true}
       />
 
-      <div className="mt-20 flex items-center gap-2 justify-between max-[768px]:flex-col cursor-pointer">
+      <div className="mt-20 flex items-center gap-2 justify-between max-[991px]:flex-col cursor-pointer">
         {/* Services Links */}
         <div className="flex-1/5 max-[1024px]:flex-2/4 flex gap-3.5">
           {/* Vertical Line */}
