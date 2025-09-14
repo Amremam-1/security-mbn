@@ -59,5 +59,19 @@
   "services": "الخدمات",
   "legal_policies": "القوانين والسياسات",
 
+  "about_us": "من نحن",
+  "home": "الرئيسية",
+  "contact_us": "تواصل معنا",
+  "projects": "المشاريع",
+  "study_projects": "مشاريع دراسية",
+  "web_app_development": "تطوير تطبيقات الويب",
+  "artistic_production": "الإنتاج الفني",
+  "digital_marketing": "التسويق الرقمي",
+  "product_design": "تصميم المنتجات",
+  "visual_identity_design": "تصميم الهوية البصرية",
+  "video_motion_graphics": "رسوميات الحركة والفيديو",
+  "uiux_design": "تصميم واجهة وتجربة المستخدم للتطبيقات والمواقع",
+  "robotics": "الروبوتات",
+
   "footer_copy": "© 2016 مجموعة MBN. جميع الحقوق محفوظة"
 }

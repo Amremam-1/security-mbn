@@ -1,11 +1,12 @@
 import React from "react"
 import ServicesLayout from "../components/ServicesLayout"
+import { useTranslation } from "react-i18next"
 
 const UiuxDesign = () => {
+  const { t } = useTranslation()
+
   return (
-    <ServicesLayout
-      defaultTitle="UI/UX Design for Apps and Websites"
-    />
+    <ServicesLayout defaultTitle={t("uiux_design")} />
   )
 }
 

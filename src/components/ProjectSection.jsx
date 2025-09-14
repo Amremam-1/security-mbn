@@ -131,7 +131,6 @@ import { useTranslation } from "react-i18next"
 
 const ProjectSection = () => {
   const { t, i18n } = useTranslation()
-  const dir = i18n.dir() // 👈 هيجيب rtl أو ltr
 
   const {
     data: projects,
@@ -151,7 +150,8 @@ const ProjectSection = () => {
 
       <div className="mt-20">
         <Swiper
-          className={dir === "rtl" ? "swiper-rtl" : ""}
+          key={i18n.language}
+          dir={i18n.language === "ar" ? "rtl" : "trl"}
           slidesPerView={3}
           spaceBetween={50}
           breakpoints={{
@@ -165,7 +165,6 @@ const ProjectSection = () => {
             delay: 2500,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
-            reverseDirection: dir === "rtl", // 👈 يخلي الحركة عكسية في العربي
           }}
           modules={[FreeMode, Autoplay]}
         >

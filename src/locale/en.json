@@ -59,5 +59,26 @@
   "services": "Services",
   "legal_policies": "Legal & Policies",
 
+  "about_us": "About Us",
+  "home": "Home",
+  "contact_us": "Contact Us",
+  "projects": "Projects",
+  "study_projects": "Study Projects",
+  "web_app_development": "Web Application Development",
+  "artistic_production": "Artistic Production",
+  "digital_marketing": "Digital Marketing",
+  "product_design": "Product Design",
+  "visual_identity_design": "Visual Identity Design",
+  "video_motion_graphics": "Video Motion Graphics",
+  "uiux_design": "UI/UX Design for Apps and Websites",
+  "robotics": "Robotics",
+
+
+
+
+
+
+
+
   "footer_copy": "© 2016 MBN Group. All rights reserved"
 }

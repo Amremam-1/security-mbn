@@ -5,6 +5,8 @@ const Intro = () => {
   const { t } = useTranslation()
   return (
     <section
+      data-aos="fade-up"
+      data-aos-duration="1500"
       className="mt-[50px] max-[450px]:mt-[0px] relative text-[#111827]  dark:text-white min-h-screen flex flex-col items-center 
     justify-center text-center px-4 overflow-hidden"
     >
@@ -60,13 +62,21 @@ const Intro = () => {
       </div>
 
       {/* Headline */}
-      <h1 className="text-xl sm:text-3xl lg:text-4xl font-bold leading-tight max-w-5xl z-10">
+      <h1
+        data-aos="fade-right"
+        data-aos-duration="1500"
+        className="text-xl sm:text-3xl lg:text-4xl font-bold leading-tight max-w-5xl z-10"
+      >
         {t("hero_title_line1")} <br />
         {t("hero_title_line2")}
       </h1>
 
       {/* Description */}
-      <p className="mt-6 mb-5 max-w-2xl text-sm sm:text-base text-[#000] dark:text-gray-300 leading-relaxed z-10">
+      <p
+        data-aos="fade-left"
+        data-aos-duration="1500"
+        className="mt-6 mb-5 max-w-2xl text-sm sm:text-base text-[#000] dark:text-gray-300 leading-relaxed z-10"
+      >
         {t("hero_description")}
       </p>
 

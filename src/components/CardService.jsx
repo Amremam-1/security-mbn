@@ -5,7 +5,11 @@ const CardService = () => {
   const { i18n } = useTranslation()
 
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-10 mt-20">
+    <div
+      data-aos="fade-up-right"
+      data-aos-duration="1000"
+      className="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-10 mt-20"
+    >
       {industriesServices.map((item) => (
         <div
           key={item.id}

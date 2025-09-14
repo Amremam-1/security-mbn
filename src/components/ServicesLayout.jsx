@@ -6,8 +6,10 @@ import useFetchQuery from "../constants/useFetchQuery"
 import Button from "../components/Button"
 import { Link, useParams } from "react-router-dom"
 import { slugify } from "../utils/slugify"
+import { useTranslation } from "react-i18next"
 
 const ServicesLayout = ({ defaultTitle }) => {
+  const { t, i18n } = useTranslation()
   const { slug } = useParams()
   const { data, isLoading, error } = useFetchQuery("services", "/services")
   const [activeItem, setActiveItem] = useState(null)
@@ -34,11 +36,28 @@ const ServicesLayout = ({ defaultTitle }) => {
     <div className="bg-white dark:bg-black min-h-screen flex flex-col">
       {/* PageHeader */}
       <PageHeader
-        title={activeItem ? activeItem.en_name : defaultTitle}
+        title={
+          i18n.language === "en"
+            ? activeItem
+              ? activeItem.en_name
+              : defaultTitle
+            : activeItem
+            ? activeItem.ar_name
+            : defaultTitle
+        }
         icon={<FaHome />}
         breadcrumb={[
-          { label: "Home", path: "/" },
-          { label: activeItem ? activeItem.en_name : defaultTitle },
+          { label: t("home"), path: "/" },
+          {
+            label:
+              i18n.language === "en"
+                ? activeItem
+                  ? activeItem.en_name
+                  : defaultTitle
+                : activeItem
+                ? activeItem.ar_name
+                : defaultTitle,
+          },
         ]}
       />
 
@@ -57,7 +76,7 @@ const ServicesLayout = ({ defaultTitle }) => {
                     : "bg-transparent text-black dark:text-white"
                 }`}
               >
-                {item?.en_name || "Untitled"}
+                {i18n.language === "en" ? item?.en_name : item.ar_name}
               </button>
             ))}
         </div>
@@ -76,10 +95,14 @@ const ServicesLayout = ({ defaultTitle }) => {
 
               <div className="mt-4">
                 <h2 className="text-2xl font-bold mb-4 text-[#111827] dark:text-white">
-                  {activeItem?.en_name}
+                  {i18n.language === "en"
+                    ? activeItem?.en_name
+                    : activeItem?.ar_name}
                 </h2>
                 <p className="text-[#6b7280] dark:text-white ">
-                  {activeItem?.en_description || "No description available"}
+                  {i18n.language === "en"
+                    ? activeItem?.en_description
+                    : activeItem?.ar_description}
                 </p>
 
                 {/* Tools Section */}
@@ -99,7 +122,7 @@ const ServicesLayout = ({ defaultTitle }) => {
                     return (
                       <>
                         <h3 className="text-xl font-bold mt-6 mb-2 text-[#111827] dark:text-white">
-                          The Tools
+                          {i18n.language === "en" ? "The Tools" : "الادوات"}
                         </h3>
                         <ul className="list-disc list-inside space-y-2">
                           {toolsArray.map((tool, index) => (
@@ -120,7 +143,7 @@ const ServicesLayout = ({ defaultTitle }) => {
                 })()}
 
                 <Link to="/contact">
-                  <Button title="Contact Us" />
+                  <Button title={t("contact_title")} />
                 </Link>
               </div>
             </div>

@@ -1,10 +1,14 @@
-import React from "react"
+import React, { useEffect } from "react"
 import NavBar from "./NavBar"
 import TopBanner from "./TopBanner"
 import useScrollPosition from "../Hooks/useScrollPosition"
 import { Outlet } from "react-router-dom"
+import Aos from "aos"
 
 const Layout = () => {
+  useEffect(() => {
+    Aos.init()
+  }, [])
   const isScrolled = useScrollPosition(10)
   return (
     <div className="bg-white dark:bg-black">

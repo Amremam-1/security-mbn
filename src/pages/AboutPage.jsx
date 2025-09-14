@@ -4,13 +4,16 @@ import { FaHome } from "react-icons/fa"
 import AboutSection from "../components/AboutSection"
 import ClientSection from "../components/ClientSection"
 import MainFooter from "../components/MainFooter"
+import { useTranslation } from "react-i18next"
+
 const AboutPage = () => {
+  const { t } = useTranslation()
   return (
     <div className="bg-white dark:bg-black">
       <PageHeader
-        title="About Us"
+        title={t("about_us")}
         icon={<FaHome />}
-        breadcrumb={[{ label: "Home", path: "/" }, { label: "About Us" }]}
+        breadcrumb={[{ label: t("home"), path: "/" }, { label: t("about_us") }]}
       />
       <AboutSection />
       <ClientSection />

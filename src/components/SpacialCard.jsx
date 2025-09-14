@@ -11,7 +11,11 @@ const SpacialCard = ({ title, Links, isLoading, error }) => {
 
   const { i18n } = useTranslation()
   return (
-    <div className="px-[20px] py-[35px] border-amber-700 border rounded-4xl h-full dark:bg-black bg-[#f9fafb]">
+    <div
+      data-aos="fade-down"
+      data-aos-duration="1500"
+      className="px-[20px] py-[35px] border-amber-700 border rounded-4xl h-full dark:bg-black bg-[#f9fafb]"
+    >
       {/* Heading */}
       <div className="text-center uppercase">
         <h1 className="text-[#f4911e] text-xl">{title || "Untitled"}</h1>

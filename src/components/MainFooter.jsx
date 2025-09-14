@@ -25,7 +25,11 @@ const MainFooter = () => {
       {/* Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 items-stretch">
         {/* Info */}
-        <div className="px-[20px] py-[35px] border-amber-700 border text-white rounded-4xl h-full dark:bg-black bg-[#f9fafb]">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          className="px-[20px] py-[35px] border-amber-700 border text-white rounded-4xl h-full dark:bg-black bg-[#f9fafb]"
+        >
           <Link to="/">
             <img
               src="/assets/Logo.png"

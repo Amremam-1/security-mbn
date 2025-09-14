@@ -20,7 +20,11 @@ const TechnologySection = () => {
 
       <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center">
         {/* Left Content */}
-        <div className="flex flex-col gap-4 lg:w-[80%] w-full">
+        <div
+          data-aos="fade-left"
+          data-aos-duration="1500"
+          className="flex flex-col gap-4 lg:w-[80%] w-full"
+        >
           {techStats.map((item) => (
             <div
               key={item.id}
@@ -42,11 +46,15 @@ const TechnologySection = () => {
           ))}
         </div>
         {/* Center Content */}
-        <div className="">
+        <div data-aos="flip-up" data-aos-duration="1500" className="">
           <DonutChart />
         </div>
         {/* Right Content */}
-        <div className="w-full h-[240px]">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="1500"
+          className="w-full h-[240px]"
+        >
           <div className="w-full h-full border-amber-600 border text-white flex items-center justify-center rounded-full px-4 py-4 text-center overflow-hidden relative">
             <p className="relative z-5 text-[#111827] dark:text-white">
               {t("strategy_description")}

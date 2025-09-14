@@ -67,6 +67,8 @@ const ServiceSection = () => {
 
                   {/* Text */}
                   <div
+                    data-aos="fade-left"
+                    data-aos-duration="1500"
                     className={`${
                       active === service.id
                         ? "opacity-100"

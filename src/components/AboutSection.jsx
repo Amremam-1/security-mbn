@@ -16,7 +16,7 @@ const AboutSection = () => {
         classes={false}
       />
 
-      <div className="flex items-center justify-between gap-8 flex-wrap md:flex-nowrap mt-20 not-md:justify-center">
+      <div className="flex items-center justify-between gap-8 flex-wrap md:flex-nowrap mt-20 not-md:justify-center overflow-hidden">
         {/* Left Side */}
         <div className="flex flex-col gap-12">
           {leftItems.map((item, index) => (
@@ -33,7 +33,11 @@ const AboutSection = () => {
         </div>
 
         {/* Center Image */}
-        <div className="flex-shrink-0">
+        <div
+          className="flex-shrink-0"
+          data-aos="zoom-in-up"
+          data-aos-duration="1500"
+        >
           <CircleImage Url="../../assets/center-image.png" />
         </div>
 

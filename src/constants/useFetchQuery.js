@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query"
 
 const useFetchQuery = (key, endpoint) => {
-  const baseUrl = "https://www.mahercp.net/admin/informatinal/api"
+  // const baseUrl = "https://www.mahercp.net/admin/informatinal/api"
+  const baseUrl = "https://filterr.net/MBN/admin/informatinal/api"
   return useQuery({
     queryKey: [key],
     queryFn: async () => {
@@ -15,5 +16,3 @@ const useFetchQuery = (key, endpoint) => {
 }
 
 export default useFetchQuery
-
-
